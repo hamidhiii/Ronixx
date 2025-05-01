@@ -1,0 +1,55 @@
+nav {
+  border-bottom: 1px solid rgba(128, 125, 126, 1);
+  background-color: black;
+  padding: 10px 0;
+ 
+
+  
+
+  .row {
+    
+    align-items: center !important;
+  
+    
+
+    img.logo {
+      margin: 0;
+      padding: 0;
+    }
+
+    .menulist {
+      margin-left: 20px; 
+      color: white;
+
+      ul{
+        color: white;
+
+        .Menu{
+          color:white;
+        }
+      }
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+      transition: background-color 0.3s ease;
+      color: rgba(128, 125, 126, 1);
+      margin-right: 0px;
+      margin-left: 13px;
+    }
+
+    img {
+      max-height: 50px;
+    }
+
+    .search {
+      flex: 1;
+      margin-left: 300px;
+    }
+  }
+}

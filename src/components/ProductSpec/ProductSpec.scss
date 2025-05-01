@@ -1,0 +1,28 @@
+.product-specs-table {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      color: #333;
+  
+      tr {
+        border-bottom: 1px solid #e0e0e0;
+      }
+  
+      td {
+        padding: 0.75rem 1rem;
+        vertical-align: top;
+      }
+  
+      .spec-label {
+        font-weight: 500;
+        width: 40%;
+        white-space: nowrap;
+      }
+  
+      .spec-value {
+        width: 60%;
+      }
+    }
+  }
+  

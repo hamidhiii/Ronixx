@@ -6,6 +6,7 @@ import Search from '../Search/Search';
 import './Navbar.scss';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 export default function Navbar() {
   return (
@@ -22,6 +23,11 @@ export default function Navbar() {
           </Col>
           <Col lg={3} className='search'>
             <Search />
+          </Col>
+          <Col lg={'auto'}>
+            
+              <ThemeToggle />
+            
           </Col>
           <Col lg={'auto'}>
             <button>

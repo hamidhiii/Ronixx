@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "./ProductCard.scss";
 import { FaStar } from "react-icons/fa";
@@ -71,3 +72,44 @@ export default function ProductCard() {
     </div>
   );
 }
+=======
+import React from "react";
+import productData from "../../Constants/Index"; 
+import "../ProductCard/ProductCard.scss";
+
+const ProductCard = ({ product }) => {
+  return (
+    <div className="product-card relative w-64 p-4 shadow-lg border rounded-md bg-white" id={`product-${product.id}`}>
+      {product.hotSale && (
+        <div className="hot-sale-label absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-semibold">
+          HOT SALE
+        </div>
+      )}
+      <img src={product.image} alt={product.name} className="product-image w-full h-40 object-contain" />
+     
+      <p className="product-code text-xs text-gray-500 mt-2">{product.code}</p>
+
+      <div className="product-details">
+        <h3 className="product-title text-sm font-semibold">{product.name}</h3>
+        <span className="product-specs text-xs text-gray-600">
+          {product.specs.map((spec, index) => (
+            <li key={index}>• {spec}</li>
+          ))}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+const ProductList = () => {
+  return (
+    <div className="product-list flex gap-4 flex-wrap justify-center">
+      {productData.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+};
+
+export default ProductList;
+>>>>>>> 21f9046 (farruxs codes)

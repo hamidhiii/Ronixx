@@ -15,7 +15,11 @@ export default function DrilsHeader() {
           />
         </div>
         
+<<<<<<< HEAD
         {/* Описание */}
+=======
+   
+>>>>>>> 21f9046 (farruxs codes)
         {HeaderElectro.map(({ id, title, desc }) => (
           <Container key={id} >
             <Col lg={10} className='text-center'>

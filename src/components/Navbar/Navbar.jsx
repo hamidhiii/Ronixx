@@ -24,9 +24,11 @@ export default function Navbar() {
             <Search />
           </Col>
           <Col lg={'auto'}>
-            <button>
-              <FaShoppingCart />
-            </button>
+          <Link to="/basket">
+              <button>
+                <FaShoppingCart />
+              </button>
+              </Link>
           </Col>
         </Row>
       </Container>

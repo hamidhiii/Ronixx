@@ -3,19 +3,20 @@ import Pliers from '../assets/img/63795040821589337312.webp'
 import FlashLights from '../assets/img/63795045321633852823.webp'
 import german from '../assets/img/638727812313966175.webp.png'
 import productdescImg from '../assets/img/product-setailk.webp'
-export const menuLink = [
+// import drel from '../assets/img/Driver.svg'
+import BigDrel1 from '../assets/img/BigDrel1.svg'
+import Insta from '../assets/img/Vector.svg'
+
+export  const menuLink = [
 
   {
-    id: 2,
-    LinkName: 'Contact Us',
-    slug: 'Contact Us'
+      id : 2,
+      LinkName: 'Contact Us & Locations',
+      slug: 'Contact Us',
+      path: '/contact-Us-&-locations'
   },
 
-  {
-    id: 3,
-    LinkName: 'Locations',
-    slug: 'Locations'
-  },
+ 
 
 ]
 
@@ -96,6 +97,45 @@ export const subCategory = [
   { id: 39, title: "Tile Vibration Machine", img: SubDrils },
   { id: 40, title: "Industrial Fan", img: SubDrils }
 ];
+export const FORM_LABELS = {
+  fullName: 'ФИО',
+  country: 'Страна',
+  phone: 'Номер Тел.',
+  email: 'Электронная почта',
+  company: 'Название компании/магазина',
+  message: 'Ваше сообщение',
+  captcha: 'Введите код',
+  submit: 'Отправить',
+};
+
+export const FORM_FIELDS = [
+  { name: 'name', label: FORM_LABELS.fullName, required: true },
+  { name: 'country', label: FORM_LABELS.country, required: true },
+  { name: 'phone', label: FORM_LABELS.phone, required: true, placeholder: '+7' },
+  { name: 'email', label: FORM_LABELS.email, type: 'email', required: true },
+
+];
+
+export const FORM_INITIAL_STATE = {
+  name: '',
+  country: '',
+  phone: '',
+  email: '',
+ 
+  message: '',
+  captcha: '',
+};
+
+export const INSTAGRAM_CARD = {
+  icon: Insta, 
+  title: 'Instagram',
+
+  buttonText: 'Следовать',
+};
+
+
+
+
 
 
 export const subCategoryHandTools = [
@@ -327,6 +367,140 @@ export const invoices = [
   { invoice: "INV005", paymentStatus: "Paid", totalAmount: "$550.00", paymentMethod: "PayPal" },
   { invoice: "INV006", paymentStatus: "Pending", totalAmount: "$200.00", paymentMethod: "Bank Transfer" },
   { invoice: "INV007", paymentStatus: "Unpaid", totalAmount: "$300.00", paymentMethod: "Credit Card" },
+];
+
+export const productDataCard = [
+  {
+    id: 0,
+    code: "8618N",
+    hotSale: true,
+    image: BigDrel1,
+    name: "18V Cordless Drill Driver 10mm-35N.m",
+    specs: ["Battery Chemistry: Lithium-İon", "Battery Voltage: DC 18V"],
+  },
+  {
+    id: 1,
+    code: "8505",
+    hotSale: false,
+    image: BigDrel1,
+    name: "3.6V Cordless Screwdriver 3N.m-BMC",
+    specs: ["Battery Chemistry: Lithium", "Battery Voltage: 3.6V"],
+  },
+  
+  {
+    id: 2,
+    code: "8900",
+    hotSale: false,
+    image: BigDrel1,
+    name: "20V Brushless impact Drill 13mm-45N.m",
+    specs: ["Battery Chemistry: Lithium-Ion", "Battery Voltage: 20V"],
+  },
+  {
+    id: 3,
+    code: "8900k",
+    hotSale: true,
+    image: BigDrel1,
+    name: "20V Brushless impact Drill kit 13mm-45N.m",
+    specs: ["Battery Type: Lithium-ion", "Battery Voltage: 20V"],
+  },
+  {
+    id: 4,
+    code: "8905K",
+    hotSale: true,
+    image: BigDrel1,
+    name: "20V BRUSHLESS IMPACT DRILL KIT 13MM-55N.M",
+    specs: ["Battery Voltage: 20V","Battery Type: Lithium-Ion"],
+  },
+  {
+    id: 5,
+    code: "8614K",
+    hotSale: false,
+    image: BigDrel1,
+    name: "14.4v Cordless drill driver kit 10mm-30N.m",
+    specs: ["Battery Chemistry: Lithium-Ion", "Chuck Type: Keyless"],
+  },
+  
+  {
+    id: 6,
+    code: "8101K",
+    hotSale: false,
+    image: BigDrel1,
+    name: "12V Cordless Impact Drill Driver Kit 10mm-28N.m",
+    specs: ["Battery Voltage: 12V", "Chuck Type: Keyless"],
+  },
+  {
+    id: 7,
+    code: "8105K",
+    hotSale: true,
+    image: BigDrel1,
+    name: "12V Cordless Drill and Screwdriver Kit",
+    specs: ["Battery Chemistry: Lithium-Ion", "Battery Voltage: 12V"],
+  },
+  {
+    id: 8,
+    code: "2603",
+    hotSale: true,
+    image: BigDrel1,
+    name: "Electric Drill Press 350W-13mm",
+    specs: ["Power: 350W", "Voltage: 220-240V"],
+  },
+  {
+    id: 9,
+    code: "2604",
+    hotSale: false,
+    image: BigDrel1,
+    name: "Electric Drill Press 550W-16mm",
+    specs: ["Power: 550W", "Voltage: 220-240V"],
+  },
+  
+  {
+    id: 10,
+    code: "2214LK",
+    hotSale: false,
+    image: BigDrel1,
+    name: "Electric Impact Drill kit 650W-13mm-Keyed",
+    specs: ["Power: 650W", "Voltage: 220-240V"],
+  },
+  {
+    id: 11,
+    code: "8613",
+    hotSale: true,
+    image: BigDrel1,
+    name: "12V Cordless drill driver 10mm-26N.m",
+    specs: ["Battery Chemistry: Lithium-Ion", "Battery Voltage: DC 12V"],
+  },
+  {
+    id: 12,
+    code: "2214LK",
+    hotSale: false,
+    image: BigDrel1,
+    name: "Electric Impact Drill kit 650W-13mm-Keyed",
+    specs: ["Power: 650W", "Voltage: 220-240V"],
+  },
+  {
+    id: 13,
+    code: "8613",
+    hotSale: true,
+    image: BigDrel1,
+    name: "12V Cordless drill driver 10mm-26N.m",
+    specs: ["Battery Chemistry: Lithium-Ion", "Battery Voltage: DC 12V"],
+  },
+  {
+    id: 14,
+    code: "8615",
+    hotSale: false,
+    image: BigDrel1,
+    name: "16v Cordless impact drill driver 10mm-32N.m",
+    specs: ["Battery Type: Lithium-lon", "Battery Voltage: DC 16V"],
+  },
+  {
+    id: 15,
+    code: "8620",
+    hotSale: true,
+    image: BigDrel1,
+    name: "20v Cordless impact drill driver 10mm-35N.m",
+    specs: ["Battery Type: Lithium-lon", "Battery Voltage: 20V"],
+  },
 ];
 
 

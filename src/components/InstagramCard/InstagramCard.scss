@@ -1,0 +1,98 @@
+.contact {
+    display: flex;
+    gap: 100px;
+    background-color: #fff;
+    width: 1000px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+  .insta-card {
+   margin-top: 50px;
+    width: 280px;
+    height: 200px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &__icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 22px;
+      color: #262626;
+    }
+
+    &__btn {
+      background-color: red;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #1a1a1a;
+      }
+    }
+  }
+
+  .formcontac {
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    width: 500px;
+    height: 300px;
+    border-radius: 20px;
+   
+
+    h3 {
+      color: black;
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    a {
+      color: black;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 30px;
+      text-decoration: none;
+      margin-left: 100px;
+     
+
+      button {
+        background-color: red;
+        width: 100px;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        margin-left: 20px;
+      }
+    }
+  }
+  h1{
+    color: red;
+    font-size: 40px;
+    font-weight: 700;
+   text-align: center;
+  }
+}

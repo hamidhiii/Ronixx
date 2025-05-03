@@ -24,17 +24,9 @@ export default function Navbar() {
             <Search />
           </Col>
           <Col lg={'auto'}>
-<<<<<<< HEAD
             <button>
               <FaShoppingCart />
             </button>
-=======
-          <Link to="/basket">
-              <button>
-                <FaShoppingCart />
-              </button>
-              </Link>
->>>>>>> 21f9046 (farruxs codes)
           </Col>
         </Row>
       </Container>

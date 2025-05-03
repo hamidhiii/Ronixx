@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Drum.scss";
 import product1 from "../../assets/img/Product1.svg";
-<<<<<<< HEAD
 
 const images = [
   { src: product1, text: "Электроинструменты", path: "/electro-tools" },
@@ -15,29 +14,6 @@ const images = [
   { src: product1, text: "Ящики и сумки для инструмента", path: "/toolboxes" },
   { src: product1, text: "Грузоподъемное оборудование", path: "/lifting-equipment" },
   { src: product1, text: "Домкраты", path: "/jacks" },
-=======
-import product2 from "../../assets/img/Product2.svg";
-import product3 from "../../assets/img/Product3.svg";
-import product4 from "../../assets/img/Product4.svg";
-import product5 from "../../assets/img/Product5.svg";
-import product6 from "../../assets/img/Product6.svg";
-import product8 from "../../assets/img/Product8.svg";
-import product9 from "../../assets/img/Product9.svg";
-import product10 from "../../assets/img/Product10.svg";
-import product7 from "../../assets/img/Product7.svg";
-
-const images = [
-  { src: product1, text: "Электроинструменты", path: "/electro-tools" },
-  { src: product2, text: "Ручные инструменты", path: "/hand-tools" },
-  { src: product3, text: "Аккумуляторные инструменты", path: "/battery-tools" },
-  { src: product4, text: "Фонари", path: "/flashlights" },
-  { src: product5, text: "Измерительные приборы", path: "/measuring-devices" },
-  { src: product6, text: "Средства индивидуальной защиты", path: "/protection" },
-  { src: product7, text: "Аксессуары для инструментов", path: "/accessories" },
-  { src: product8, text: "Ящики и сумки для инструмента", path: "/toolboxes" },
-  { src: product9, text: "Грузоподъемное оборудование", path: "/lifting-equipment" },
-  { src: product10, text: "Домкраты", path: "/jacks" },
->>>>>>> 21f9046 (farruxs codes)
 ];
 
 const Drum = () => {

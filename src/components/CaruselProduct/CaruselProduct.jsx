@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./CaruselProduct.scss"; 
+import "./CaruselProduct.scss";
+
 const CarouselProduct = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 

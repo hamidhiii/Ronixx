@@ -3,7 +3,7 @@ import Pliers from '../assets/img/63795040821589337312.webp'
 import FlashLights from '../assets/img/63795045321633852823.webp'
 import german from '../assets/img/638727812313966175.webp.png'
 import productdescImg from '../assets/img/product-setailk.webp'
-// import drel from '../assets/img/Driver.svg'
+import drel from '../assets/img/Driver.svg'
 import BigDrel1 from '../assets/img/BigDrel1.svg'
 import Insta from '../assets/img/Vector.svg'
 
@@ -19,6 +19,13 @@ export  const menuLink = [
  
 
 ]
+export const categories = [
+  { id: 0 ,name: "Electric Drills", image: drel },
+  {id: 1 , name: "Impact Drills", image: drel },
+  {id: 2 , name: "Cordless Drill Driver", image: drel},
+  {id: 3 , name: "Drill Press", image: drel},
+  {id: 4 , name: "Drill Set", image: drel},
+];
 
 export const features = [
   {

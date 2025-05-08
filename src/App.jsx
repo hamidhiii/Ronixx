@@ -1,7 +1,6 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import "slick-carousel/slick/slick.css"; 
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Home from './Pages/Home/Home';
@@ -20,9 +19,11 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import Basket from './Pages/Basket/Basket';
 
 export default function App() {
+  const isAuthPage = window.location.pathname === "/login" || window.location.pathname === "/register" || window.location.pathname === "/forgot-password"; 
+
   return (
     <div>
-       <Navbar/>
+      {!isAuthPage && <Navbar />}  {/* Показываем Navbar, если это не страница аутентификации */}
       
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -40,8 +41,10 @@ export default function App() {
 
 
 
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       </Routes>
 
+      {!isAuthPage && <Footer />}  {/* Показываем Footer, если это не страница аутентификации */}
     </div>
-  )
+  );
 }

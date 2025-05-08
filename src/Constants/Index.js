@@ -3,21 +3,26 @@ import Pliers from '../assets/img/63795040821589337312.webp'
 import FlashLights from '../assets/img/63795045321633852823.webp'
 import german from '../assets/img/638727812313966175.webp.png'
 import productdescImg from '../assets/img/product-setailk.webp'
-export const menuLink = [
+import drel from '../assets/img/Driver.svg'
+import BigDrel1 from '../assets/img/BigDrel1.svg'
+import Insta from '../assets/img/Vector.svg'
 
+export const menuLink = [
   {
     id: 2,
-    LinkName: 'Contact Us',
-    slug: 'Contact Us'
+    LinkName: 'Aloqa va Joylashuv', // Используем ключ для перевода
+    slug: 'contactUs',
+    path: '/contact-Us-&-locations'
   },
+];
 
-  {
-    id: 3,
-    LinkName: 'Locations',
-    slug: 'Locations'
-  },
-
-]
+export const categories = [
+  { id: 0 ,name: "Electric Drills", image: drel },
+  {id: 1 , name: "Impact Drills", image: drel },
+  {id: 2 , name: "Cordless Drill Driver", image: drel},
+  {id: 3 , name: "Drill Press", image: drel},
+  {id: 4 , name: "Drill Set", image: drel},
+];
 
 export const features = [
   {
@@ -96,6 +101,45 @@ export const subCategory = [
   { id: 39, title: "Tile Vibration Machine", img: SubDrils },
   { id: 40, title: "Industrial Fan", img: SubDrils }
 ];
+export const FORM_LABELS = {
+  fullName: 'ФИО',
+  country: 'Страна',
+  phone: 'Номер Тел.',
+  email: 'Электронная почта',
+  company: 'Название компании/магазина',
+  message: 'Ваше сообщение',
+  captcha: 'Введите код',
+  submit: 'Отправить',
+};
+
+export const FORM_FIELDS = [
+  { name: 'name', label: FORM_LABELS.fullName, required: true },
+  { name: 'country', label: FORM_LABELS.country, required: true },
+  { name: 'phone', label: FORM_LABELS.phone, required: true, placeholder: '+7' },
+  { name: 'email', label: FORM_LABELS.email, type: 'email', required: true },
+
+];
+
+export const FORM_INITIAL_STATE = {
+  name: '',
+  country: '',
+  phone: '',
+  email: '',
+ 
+  message: '',
+  captcha: '',
+};
+
+export const INSTAGRAM_CARD = {
+  icon: Insta, 
+  title: 'Instagram',
+
+  buttonText: 'Следовать',
+};
+
+
+
+
 
 
 export const subCategoryHandTools = [

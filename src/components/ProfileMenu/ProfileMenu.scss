@@ -1,0 +1,50 @@
+/* Стили для выпадающего меню профиля */
+.profile-menu-wrapper {
+    position: relative;
+    display: inline-block;
+   
+  
+    .profile-icon {
+      
+      cursor: pointer;
+     
+      margin-left: 30px;
+      margin-right: 10px;
+      
+
+      .icons{
+        color: red;
+        font-size: 20px;
+      }
+      
+    }
+  
+    .profile-dropdown {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 200px;
+      padding: 10px 0;
+      z-index: 1000;
+  
+      div {
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
+  }
+  
+  /* Дополнительные стили для иконки и текста */
+  .profile-icon span {
+    font-size: 24px;
+    color: #007bff;
+  }
+  

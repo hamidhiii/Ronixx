@@ -2,8 +2,19 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  z-index: -111;
   border-bottom: 1px solid white;
-
+&::after{
+  content : "";
+  position: absolute;
+  top: 0;  
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  display: block;
+  z-index: 111111;
+}
   img {
     height: 540px;
     width: 100%;

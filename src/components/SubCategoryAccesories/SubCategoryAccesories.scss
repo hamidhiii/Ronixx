@@ -1,0 +1,44 @@
+
+.sub-category {
+    padding: 40px 0;
+    margin-top: 150px;
+
+    .cards {
+        flex: 0 0 19%; 
+        max-width: 19%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        cursor: pointer;
+        margin: 0.5%;
+        position: relative; /* Ensure the border is positioned correctly */
+
+        img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        &:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px; /* Adjust the height of the border */
+            background-color: red; /* Adjust the color of the border */
+            transition: height 0.3s ease-in-out; 
+        }
+    }
+}

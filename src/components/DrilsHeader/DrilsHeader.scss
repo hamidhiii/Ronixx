@@ -1,0 +1,42 @@
+.position-relative {
+    position: relative;
+    overflow: hidden !important;
+}
+
+
+img.headerfotos {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+.text-center {
+    // border: 1px solid #000;
+    padding: 32px;
+    position: absolute;
+    top: 72%;
+    border-radius: 8px;
+    // right: 0%;
+    // right: 10px;
+    background-color: #FFFFFF;
+h1 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: #3D3D3D;
+}
+
+p {
+    color: #212529;
+    width: 800px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    margin: auto;
+
+}
+   
+}

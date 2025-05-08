@@ -1,1 +1,43 @@
-Navbar.jsx:7 Uncaught SyntaxError: The requested module '/src/components/ProfileMenu/ProfileMenu.jsx?t=1746663668671' does not provide an export named 'default' (at Navbar.jsx:7:8)
+import React from 'react'
+import { FaShoppingCart } from 'react-icons/fa';
+import logo from '../../assets/img/Variant.png'
+import Menu from '../Menu/Menu';
+import Search from '../Search/Search';
+import './Navbar.scss';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+
+export default function Navbar() {
+  return (
+    <nav>
+      <Container> 
+             <Row>
+          <Col lg={'auto'}>
+            <Link to={'/'}><img src={logo} alt="" className='logo' /></Link>
+          </Col>
+          <Col lg={3} className='menulist'>
+            <ul>
+              <Menu />
+            </ul>
+          </Col>
+          <Col lg={3} className='search'>
+            <Search />
+          </Col>
+          <Col lg={'auto'}>
+            
+              <ThemeToggle />
+            
+          </Col>
+          <Col lg={'auto'}>
+            <Link to={'/basket'}>
+            <button>
+              <FaShoppingCart />
+            </button>
+            </Link>
+          </Col>
+        </Row>
+      </Container>
+    </nav>
+  )
+}

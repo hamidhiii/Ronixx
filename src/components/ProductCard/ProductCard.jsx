@@ -5,8 +5,12 @@ import flag from '../../assets/img/638727812313966175.webp.png'
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { productData } from "../../Constants/Index";
 import ProductAccardion from "../ProductAccardion/ProductAccardion";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 export default function ProductCard() {
+  const dispatch = useDispatch();
+
   const {
     name,
     model,
@@ -17,6 +21,7 @@ export default function ProductCard() {
     description,
     specification,
   } = productData;
+  
 
   const [activeModel, setActiveModel] = useState(model);
   const [activeAccordion, setActiveAccordion] = useState("0");
@@ -24,6 +29,30 @@ export default function ProductCard() {
   const toggleAccordion = (key) => {
     setActiveAccordion(activeAccordion === key ? null : key);
   };
+
+  const handleBulkOrder = () => {
+    console.log("Adding to cart:", {
+      id: model,
+      name,
+      model,
+      // image: images[0],
+      barcode: barcodes.card,
+      price: 300000,
+    });
+  
+    dispatch(
+      addToCart({
+        id: model,
+        name,
+        model,
+        // image: images[0],
+        barcode: barcodes.card,
+        price: 300000,
+      })
+    );
+  };  
+
+
 
   return (
     <div className="product-card">
@@ -59,7 +88,7 @@ export default function ProductCard() {
         </div>
 
         <div className="action-buttons">
-          <button className="bulk-order">Bulk Order</button>
+          <button className="bulk-order" onClick={handleBulkOrder}>Bulk Order</button>
         </div>
 
 

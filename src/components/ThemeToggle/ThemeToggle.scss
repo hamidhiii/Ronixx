@@ -1,0 +1,32 @@
+.theme-toggle {
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: inherit;
+  
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke: currentColor;
+    }
+  
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  
+    // В тёмной теме можно усилить эффект
+    .dark & {
+      border-color: white;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  

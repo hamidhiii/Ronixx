@@ -1,29 +1,39 @@
-// ProductDataCard.jsx
 import React from "react";
-import "./ProductDataCard.scss";
-import { Link } from "react-router";
+import "../ProductDataCard/ProductDataCard.scss";
+import { productDataCard } from "../../Constants/Index";
 
-export const ProductDataCard = ({ product }) => {
-  if (!product) return null;
-
+ export const ProductDataCard = ({ product }) => {
   return (
-    <Link to={'/product-details'}>
-    <div className="product-card" id={`product-${product.id}`}>
+    <div className="product-card relative w-64 p-4 shadow-lg border rounded-md bg-white" id={`product-${product.id}`}>
       {product.hotSale && (
-        <div className="hot-sale-label">HOT SALE</div>
+        <div className="hot-sale-label absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-semibold">
+          HOT SALE
+        </div>
       )}
-      <img src={product.image} alt={product.name} className="product-image" />
-      <p className="product-code">{product.code}</p>
+      <img src={product.image} alt={product.name} className="product-image w-full h-40 object-contain" />
+     
+      <p className="product-code text-xs text-gray-500 mt-2">{product.code}</p>
 
       <div className="product-details">
-        <h3 className="product-title">{product.name}</h3>
-        <ul className="product-specs">
-          {(Array.isArray(product.specs) ? product.specs : []).map((spec, index) => (
+        <h3 className="product-title text-sm font-semibold">{product.name}</h3>
+        <span className="product-specs text-xs text-gray-600">
+          {product.specs.map((spec, index) => (
             <li key={index}>• {spec}</li>
           ))}
-        </ul>
+        </span>
       </div>
     </div>
-    </Link>
   );
 };
+
+const ProductList = () => {
+  return (
+    <div className="product-list flex gap-4 flex-wrap justify-center">
+      {productDataCard.map((product) => (
+        <ProductDataCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+};
+
+export default ProductList;

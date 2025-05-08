@@ -1,0 +1,38 @@
+.checkout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+  
+    &__cart {
+      border-bottom: 2px solid #eee;
+      margin-bottom: 30px;
+  
+      h2 {
+        margin-bottom: 15px;
+      }
+    }
+  
+    &__total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  
+    .order-button {
+      width: 100%;
+      padding: 12px;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+  
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+  

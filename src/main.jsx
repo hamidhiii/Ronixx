@@ -1,16 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './index.scss'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
-import './components/i18n/index.js'; // ← без расширения, Vite сам найдёт index.js
-
-
+import { ThemeProvider } from 'next-themes'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <Provider store={store}>
+    <ThemeProvider attribute="class">
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </ThemeProvider>
+    </Provider>
   </BrowserRouter>
 )

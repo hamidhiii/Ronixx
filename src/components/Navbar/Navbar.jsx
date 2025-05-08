@@ -30,9 +30,11 @@ export default function Navbar() {
             
           </Col>
           <Col lg={'auto'}>
+            <Link to={'/basket'}>
             <button>
               <FaShoppingCart />
             </button>
+            </Link>
           </Col>
         </Row>
       </Container>

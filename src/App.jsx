@@ -17,6 +17,7 @@ import SubCAtegoryStorage from './Pages/SubCAtegoryStorage/SubCAtegoryStorage';
 import SubCategorySuplierr from './Pages/SubCategorySuplier/SubCategorySuplierr';
 import SubCategoryJacks from './Pages/SubCategoryJacks/SubCategoryJacks';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import Basket from './Pages/Basket/Basket';
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
         <Route path='/lifting-equipment' element={<SubCategorySuplierr/>}/>
         <Route path='/jacks' element={<SubCategoryJacks/>}/>
         <Route path='/product-details' element={<ProductDetail/>}/>
+        <Route path='/basket' element={<Basket/>}/>
 
 
 

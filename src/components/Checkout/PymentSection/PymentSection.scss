@@ -1,0 +1,28 @@
+.payment-methods {
+    margin-bottom: 30px;
+  
+    p {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  
+    .method-list {
+      display: flex;
+      gap: 10px;
+  
+      button {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        background-color: white;
+        border-radius: 6px;
+        cursor: pointer;
+  
+        &.active {
+          background-color: #000;
+          color: white;
+          border-color: #000;
+        }
+      }
+    }
+  }
+  

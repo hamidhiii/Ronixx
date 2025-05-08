@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./ProfileMenu.scss";
 import { FaUserAlt } from "react-icons/fa";
 
-export default function ProfileMenu({ onLogout }) {
+const ProfileMenu = ({ onLogout }) =>  {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -28,13 +28,14 @@ export default function ProfileMenu({ onLogout }) {
         <div onClick={() => navigate("/orders")}>🧾 Мои заказы</div>
         <div onClick={() => navigate("/applications")}>📬 Мои заявки</div>
         <div onClick={() => navigate("/profile")}>🧍‍♂️ Профиль</div>
-        <div onClick={() => {
-          onLogout();
-          setMenuOpen(false);
-        }}>🚪 Выйти</div>
+        <div>
+    <button onClick={onLogout}>Выйти</button>
+  </div>
       </div>
     )}
   </div>
   
   );
 }
+
+export default ProfileMenu;

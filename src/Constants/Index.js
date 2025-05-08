@@ -7,18 +7,15 @@ import drel from '../assets/img/Driver.svg'
 import BigDrel1 from '../assets/img/BigDrel1.svg'
 import Insta from '../assets/img/Vector.svg'
 
-export  const menuLink = [
-
+export const menuLink = [
   {
-      id : 2,
-      LinkName: 'Contact Us & Locations',
-      slug: 'Contact Us',
-      path: '/contact-Us-&-locations'
+    id: 2,
+    LinkName: 'Aloqa va Joylashuv', // Используем ключ для перевода
+    slug: 'contactUs',
+    path: '/contact-Us-&-locations'
   },
+];
 
- 
-
-]
 export const categories = [
   { id: 0 ,name: "Electric Drills", image: drel },
   {id: 1 , name: "Impact Drills", image: drel },

@@ -2,7 +2,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  // z-index: -111;
+  z-index: -111;
   border-bottom: 1px solid white;
 &::after{
   content : "";

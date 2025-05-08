@@ -14,7 +14,6 @@ export default function Home() {
         <Header/>
         <Drum/>
         <SectionCore/>
-     
         
     </div>
   )

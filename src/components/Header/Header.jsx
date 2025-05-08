@@ -8,7 +8,6 @@ import '../Header/Header.scss'
 import bac3 from "../../assets/img/bac3.png";
 
 
-
 export default function Header() {
   const settings = {
     speed: 500,
@@ -41,7 +40,7 @@ export default function Header() {
 
       </Slider>
       
-   
+    
       
     </div>   
   );

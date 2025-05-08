@@ -38,19 +38,10 @@ nav {
       cursor: pointer;
       font-size: 20px;
       transition: background-color 0.3s ease;
-      color: white;
-      margin-right: 20px;
+      color: rgba(128, 125, 126, 1);
+      margin-right: 0px;
       margin-left: 13px;
     }
-
-    a{
-      color: white;
-
-      :hover{
-        color: red;
-      }
-    }
-
 
     img {
       max-height: 50px;
@@ -58,7 +49,7 @@ nav {
 
     .search {
       flex: 1;
-      margin-left: 150px;
+      margin-left: 300px;
     }
   }
 }

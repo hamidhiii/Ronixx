@@ -1,8 +1,7 @@
 import React from 'react'
 import ProductDrel from '../../components/ProductDrel/ProductDrel'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import { ProductDataCard } from '../../components/ProductDataCard/ProductDataCard'
-
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 
 export default function SubProductDrel() {
@@ -10,7 +9,7 @@ export default function SubProductDrel() {
     <div>
         <DrilsHeader/>
         <ProductDrel/>
-        <ProductDataCard/>
+        <ProductCard/>
     </div>
   )
 }

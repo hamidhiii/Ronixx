@@ -1,9 +1,8 @@
 import React from "react";
 import "../ProductDrel/ProductDrel.scss"
 
-
-import { Col, Container, Row } from "react-bootstrap";
 import { categories } from "../../Constants/Index";
+import { Col, Container, Row } from "react-bootstrap";
 
 const ProductDrel = () => {
   return (

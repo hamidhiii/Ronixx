@@ -17,6 +17,9 @@ import SubCategorySuplierr from './Pages/SubCategorySuplier/SubCategorySuplierr'
 import SubCategoryJacks from './Pages/SubCategoryJacks/SubCategoryJacks';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Basket from './Pages/Basket/Basket';
+import Footer from "./components/Footer/Footer";
+import { ProductDataCard } from "./components/ProductDataCard/ProductDataCard";
+import ForgotPasswordPage from "./Pages/ForgotPasswordPage/ForgotPasswordPage";
 
 export default function App() {
   const isAuthPage = window.location.pathname === "/login" || window.location.pathname === "/register" || window.location.pathname === "/forgot-password"; 
@@ -38,7 +41,6 @@ export default function App() {
         <Route path='/jacks' element={<SubCategoryJacks/>}/>
         <Route path='/product-details' element={<ProductDetail/>}/>
         <Route path='/basket' element={<Basket/>}/>
-
 
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />

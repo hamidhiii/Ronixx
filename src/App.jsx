@@ -24,6 +24,7 @@ import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import Footer from "./components/Footer/Footer";
 
+
 export default function App() {
   const isAuthPage = window.location.pathname === "/login" || window.location.pathname === "/register" || window.location.pathname === "/forgot-password"; 
 
@@ -45,7 +46,6 @@ export default function App() {
         <Route path='/product-details' element={<ProductDetail/>}/>
         <Route path='/basket' element={<Basket/>}/>
         <Route path='/products' element={<ProductDataCard/>}/>
-
 
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />

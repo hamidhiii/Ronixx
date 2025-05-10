@@ -17,9 +17,13 @@ import SubCategorySuplierr from './Pages/SubCategorySuplier/SubCategorySuplierr'
 import SubCategoryJacks from './Pages/SubCategoryJacks/SubCategoryJacks';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Basket from './Pages/Basket/Basket';
-import Footer from "./components/Footer/Footer";
-import { ProductDataCard } from "./components/ProductDataCard/ProductDataCard";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage/ForgotPasswordPage";
+import { ProductDataCard } from "./components/ProductDataCard/ProductDataCard";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import Footer from "./components/Footer/Footer";
+
 
 export default function App() {
   const isAuthPage = window.location.pathname === "/login" || window.location.pathname === "/register" || window.location.pathname === "/forgot-password"; 
@@ -41,12 +45,16 @@ export default function App() {
         <Route path='/jacks' element={<SubCategoryJacks/>}/>
         <Route path='/product-details' element={<ProductDetail/>}/>
         <Route path='/basket' element={<Basket/>}/>
+        <Route path='/products' element={<ProductDataCard/>}/>
 
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/forgot-password" element={<RegisterPage />} />
       </Routes>
 
-      {!isAuthPage && <Footer />}  {/* Показываем Footer, если это не страница аутентификации */}
+      {!isAuthPage && <Footer/>}  {/* Показываем Footer, если это не страница аутентификации */}
     </div>
   );
 }

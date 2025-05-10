@@ -1,8 +1,8 @@
+// src/components/ProductCard/ProductDataCard.jsx
 import React from "react";
-import "../ProductDataCard/ProductDataCard.scss";
-import { productDataCard } from "../../Constants/Index";
+import "./ProductDataCard.scss";
 
- export const ProductDataCard = ({ product }) => {
+export const ProductDataCard = ({ product }) => {
   return (
     <div className="product-card relative w-64 p-4 shadow-lg border rounded-md bg-white" id={`product-${product.id}`}>
       {product.hotSale && (
@@ -11,7 +11,7 @@ import { productDataCard } from "../../Constants/Index";
         </div>
       )}
       <img src={product.image} alt={product.name} className="product-image w-full h-40 object-contain" />
-     
+      
       <p className="product-code text-xs text-gray-500 mt-2">{product.code}</p>
 
       <div className="product-details">
@@ -25,15 +25,3 @@ import { productDataCard } from "../../Constants/Index";
     </div>
   );
 };
-
-const ProductList = () => {
-  return (
-    <div className="product-list flex gap-4 flex-wrap justify-center">
-      {productDataCard.map((product) => (
-        <ProductDataCard key={product.id} product={product} />
-      ))}
-    </div>
-  );
-};
-
-export default ProductList;

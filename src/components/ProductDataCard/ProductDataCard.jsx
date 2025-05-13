@@ -1,22 +1,28 @@
 // src/components/ProductCard/ProductDataCard.jsx
 import React from "react";
 import "./ProductDataCard.scss";
+import { useNavigate } from "react-router-dom";
 
 export const ProductDataCard = ({ product }) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/product-details')
+  }
   return (
-    <div className="product-card relative w-64 p-4 shadow-lg border rounded-md bg-white" id={`product-${product.id}`}>
+    <div className="product-card " id={`product-${product.id}`} onClick={handleClick}>
       {product.hotSale && (
-        <div className="hot-sale-label absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-semibold">
+        <div className="hot-sale-label ">
           HOT SALE
         </div>
       )}
-      <img src={product.image} alt={product.name} className="product-image w-full h-40 object-contain" />
+      <img src={product.image} alt={product.name} className="product-image " />
       
-      <p className="product-code text-xs text-gray-500 mt-2">{product.code}</p>
+      <p className="product-code ">{product.code}</p>
 
       <div className="product-details">
-        <h3 className="product-title text-sm font-semibold">{product.name}</h3>
-        <span className="product-specs text-xs text-gray-600">
+        <h3 className="product-title ">{product.name}</h3>
+        <span className="product-specs ">
           {product.specs.map((spec, index) => (
             <li key={index}>• {spec}</li>
           ))}

@@ -401,7 +401,7 @@ export const PRODUCT_DETAILS = {
 export const productData = {
   model: "RH-1249",
   origin: "MADE IN GERMANY",
-  image: german,
+  images: [Pliers, SubDrils, FlashLights],
   description: "VDE high leverage Diagonal cutting plier 8 inch German",
   barcodes: {
     card: "4069516000696",
@@ -436,8 +436,6 @@ export const productData = {
     "DIN/EN/IEC 60900 standard",
     "Made of special tool steel, forged, oil-hardened"
   ],
-  description: "Full description text here...",
-  specification: "Full specification text here..."
 
 };
 
@@ -508,5 +506,7 @@ export const invoices = [
   { invoice: "INV006", paymentStatus: "Pending", totalAmount: "$200.00", paymentMethod: "Bank Transfer" },
   { invoice: "INV007", paymentStatus: "Unpaid", totalAmount: "$300.00", paymentMethod: "Credit Card" },
 ];
+
+
 
 

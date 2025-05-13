@@ -27,6 +27,7 @@ import Footer from "./components/Footer/Footer";
 import SubProductDrel from "./Pages/SubProductDrel/SubProductDrel";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 
+
 export default function App() {
   const location = useLocation();
   const isAuthPage = ["/login", "/register", "/forgot-password"].includes(location.pathname);
@@ -51,7 +52,6 @@ export default function App() {
         <Route path='/basket' element={<Basket/>}/>
         <Route path='/products' element={<SubProductDrel/>}/>
         <Route path='/contact-Us-&-locations' element={<ContactUs/>}/>
-
 
 
 

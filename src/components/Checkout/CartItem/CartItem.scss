@@ -2,76 +2,78 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  flex-wrap: wrap; // добавлено
+  padding: 24px 0;
+  border-bottom: 1px solid #ddd;
   gap: 16px;
 
   img {
-    width: 60px;
-    height: 80px;
+    width: 65px;
+    height: 90px;
     object-fit: contain;
   }
 
   .info {
     flex: 1;
+    min-width: 180px; // важно
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 6px; 
+    gap: 6px;
+
     .name {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 500;
-      margin-bottom: 4px;
-      color: black !important;
+      color: #000;
+      word-break: break-word; // важно для длинных названий
     }
 
     .barcode {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 10px;
+      font-size: 13px;
+      color: #999;
     }
 
     .controls {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      margin-top: 6px;
 
       button {
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
         border: 1px solid #ccc;
-        background-color: #fff;
-        font-size: 16px;
+        background: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 6px;
         cursor: pointer;
-        border-radius: 4px;
-        transition: all 0.2s;
 
         &:hover {
-          background-color: #f0f0f0;
+          background-color: #f5f5f5;
         }
       }
 
       span {
-        min-width: 24px;
-        text-align: center;
+        font-size: 16px;
         font-weight: 500;
+        min-width: 30px;
+        text-align: center;
       }
     }
   }
 
   .price {
-    min-width: 120px;
-    text-align: right;
-    font-weight: 500;
     font-size: 16px;
+    font-weight: 500;
+    min-width: 130px;
+    text-align: right;
   }
 
   .remove {
-    font-size: 18px;
-    background: none;
+    font-size: 24px;
+    color: #888;
     border: none;
-    color: #aaa;
-    margin-left: 12px;
+    background: none;
     cursor: pointer;
 
     &:hover {

@@ -1,13 +1,15 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
 import './ProductDetail.scss';
-import { PRODUCT_DETAILS } from "../../Constants/Index";
+import { PRODUCT_DETAILS, productData } from "../../Constants/Index";
+import { Col, Container, Row } from "react-bootstrap";
 import CarouselProduct from "../CaruselProduct/CaruselProduct";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductDesc from "../ProductDesc/ProductDesc";
 
 export default function ProductDetail() {
   const { name, model, rating, images } = PRODUCT_DETAILS;
+  const {item} = productData
 
   return (
     <Container>
@@ -25,3 +27,4 @@ export default function ProductDetail() {
     </Container>
   );
 }
+

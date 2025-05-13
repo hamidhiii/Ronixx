@@ -26,8 +26,8 @@ export default function LoginPage() {
 
       if (user) {
         localStorage.setItem("currentUser", JSON.stringify(user));
-        window.dispatchEvent(new Event("storage")); // уведомляем Navbar о входе
-        navigate("/profile"); // переход на профиль после входа
+        window.dispatchEvent(new Event("storage")); 
+        navigate("/profile"); 
       } else {
         setError("Неверные данные для входа");
       }

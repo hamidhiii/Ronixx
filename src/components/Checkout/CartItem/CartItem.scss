@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; // добавлено
   padding: 24px 0;
   border-bottom: 1px solid #ddd;
-  gap: 24px;
+  gap: 16px;
 
   img {
     width: 65px;
@@ -14,14 +15,16 @@
 
   .info {
     flex: 1;
+    min-width: 180px; // важно
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 
     .name {
       font-size: 18px;
       font-weight: 500;
       color: #000;
+      word-break: break-word; // важно для длинных названий
     }
 
     .barcode {
@@ -33,6 +36,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      margin-top: 6px;
 
       button {
         width: 34px;

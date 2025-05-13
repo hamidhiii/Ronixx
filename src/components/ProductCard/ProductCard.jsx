@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ProductCard.scss";
 import { FaStar } from "react-icons/fa";
-import flag from '../../assets/img/638727812313966175.webp.png'
+import flag from '../../assets/img/638727812313966175.webp.png';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { productData } from "../../Constants/Index";
 import ProductAccardion from "../ProductAccardion/ProductAccardion";
@@ -12,17 +12,16 @@ export default function ProductCard() {
   const dispatch = useDispatch();
 
   const {
-    name,
     model,
-    rating,
+    origin,
+    images,
+    description,
     barcodes,
     similarModels,
     features,
-    description,
     specification,
   } = productData;
   
-
   const [activeModel, setActiveModel] = useState(model);
   const [activeAccordion, setActiveAccordion] = useState("0");
 
@@ -33,26 +32,22 @@ export default function ProductCard() {
   const handleBulkOrder = () => {
     console.log("Adding to cart:", {
       id: model,
-      name,
+      name: productData.description, // Assuming 'description' as name for now
       model,
-      // image: images[0],
       barcode: barcodes.card,
       price: 300000,
     });
-  
+
     dispatch(
       addToCart({
         id: model,
-        name,
+        name: productData.description,
         model,
-        // image: images[0],
         barcode: barcodes.card,
         price: 300000,
       })
     );
-  };  
-
-
+  };
 
   return (
     <div className="product-card">
@@ -77,9 +72,9 @@ export default function ProductCard() {
 
       <div className="main-info">
         <h4>
-          Model: <span>{model}</span> <FaStar className="star-icon" /> (NA)
+          Model: <span>{model}</span> <FaStar className="star-icon" /> 
         </h4>
-        <p className="product-name">{name}</p>
+        <p className="product-name">{description}</p>
 
         <div className="barcodes">
           <p>Barcode For Card : {barcodes.card}</p>
@@ -91,11 +86,13 @@ export default function ProductCard() {
           <button className="bulk-order" onClick={handleBulkOrder}>Bulk Order</button>
         </div>
 
-
-
-        <ProductAccardion features={features} description={description} specification={specification} activeAccordion={activeAccordion} toggleAccordion={toggleAccordion}
+        <ProductAccardion 
+          features={features} 
+          description={description} 
+          specification={specification} 
+          activeAccordion={activeAccordion} 
+          toggleAccordion={toggleAccordion} 
         />
-
       </div>
     </div>
   );

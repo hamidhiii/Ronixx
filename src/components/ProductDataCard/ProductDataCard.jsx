@@ -1,18 +1,24 @@
 // src/components/ProductCard/ProductDataCard.jsx
 import React from "react";
 import "./ProductDataCard.scss";
+import { useNavigate } from "react-router-dom";
 
 export const ProductDataCard = ({ product }) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/product-details')
+  }
   return (
-    <div id={`product-${product.id}`}>
+    <div className="product-card " id={`product-${product.id}`} onClick={handleClick}>
       {product.hotSale && (
-        <div >
+        <div className="hot-sale-label ">
           HOT SALE
         </div>
       )}
-      <img src={product.image} alt={product.name}  />
+      <img src={product.image} alt={product.name} className="product-image " />
       
-      <p >{product.code}</p>
+      <p className="product-code ">{product.code}</p>
 
       <div className="product-details">
         <h3 className="product-title ">{product.name}</h3>

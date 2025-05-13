@@ -1,4 +1,20 @@
 {
-    "Контакт и локация": "Aloqa va Joylashuv"
-  }
-  
+  "contact_and_location": "Aloqa va Joylashuv",
+  "electro_tools": "Elektr asboblari",
+  "hand_tools": "Qo'lda ishlatiladigan asboblar",
+  "battery_tools": "Batareya bilan ishlaydigan asboblar",
+  "flashlights": "Fonarlar",
+  "measuring_devices": "O'lchov asboblari",
+  "protection": "Shaxsiy himoya vositalari",
+  "accessories": "Asboblar uchun aksessuarlar",
+  "toolboxes": "Asboblar uchun qutilar va sumkalar",
+  "lifting_equipment": "Ko'tarish uskunalari",
+  "jacks": "Domkratlar",
+  "all_products": "Barcha mahsulotlar",
+  "hand_tools_wholesale": "Qo'lda ishlatiladigan asboblar ulgurji",
+  "flashlights_wholesale": "Fonarlar va fonariklar ulgurji",
+  "protection_tools": "Shaxsiy himoya vositalari (SHV)",
+  "accessories_for_tools": "Asboblar uchun aksessuarlar",
+  "toolboxes_bags": "Asboblar uchun qutilar va sumkalar"
+ 
+}

@@ -145,11 +145,12 @@ export const productDataCard = [
 export const menuLink = [
   {
     id: 2,
-    LinkName: 'Aloqa va Joylashuv', // Используем ключ для перевода
+    LinkName: 'contact_and_location', // Используем ключ для перевода
     slug: 'contactUs',
     path: '/contact-Us-&-locations'
   },
 ];
+
 
 export const categories = [
   { id: 0 ,name: "Electric Drills", image: drel },

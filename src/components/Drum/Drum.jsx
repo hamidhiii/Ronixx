@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Импортируем useTranslation
 import "./Drum.scss";
 import product1 from "../../assets/img/Product1.svg";
 
 const images = [
-  { src: product1, text: "Электроинструменты", path: "/electro-tools" },
-  { src: product1, text: "Ручные инструменты", path: "/hand-tools" },
-  { src: product1, text: "Аккумуляторные инструменты", path: "/battery-tools" },
-  { src: product1, text: "Фонари", path: "/flashlights" },
-  { src: product1, text: "Измерительные приборы", path: "/measuring-devices" },
-  { src: product1, text: "Средства индивидуальной защиты", path: "/protection" },
-  { src: product1, text: "Аксессуары для инструментов", path: "/accessories" },
-  { src: product1, text: "Ящики и сумки для инструмента", path: "/toolboxes" },
-  { src: product1, text: "Грузоподъемное оборудование", path: "/lifting-equipment" },
-  { src: product1, text: "Домкраты", path: "/jacks" },
+  { src: product1, textKey: "electro_tools", path: "/electro-tools" },
+  { src: product1, textKey: "hand_tools", path: "/hand-tools" },
+  { src: product1, textKey: "battery_tools", path: "/battery-tools" },
+  { src: product1, textKey: "flashlights", path: "/flashlights" },
+  { src: product1, textKey: "measuring_devices", path: "/measuring-devices" },
+  { src: product1, textKey: "protection", path: "/protection" },
+  { src: product1, textKey: "accessories", path: "/accessories" },
+  { src: product1, textKey: "toolboxes", path: "/toolboxes" },
+  { src: product1, textKey: "lifting_equipment", path: "/lifting-equipment" },
+  { src: product1, textKey: "jacks", path: "/jacks" },
 ];
 
 const Drum = () => {
+  const { t } = useTranslation(); // Используем функцию перевода
   const [activeIndex, setActiveIndex] = useState(0);
   const total = images.length;
   const radius = 200;
@@ -47,13 +49,13 @@ const Drum = () => {
                   zIndex: total - Math.abs(index - activeIndex),
                 }}
               >
-                <img src={image.src} alt={image.text} />
+                <img src={image.src} alt={t(image.textKey)} />
               </Link>
             );
           })}
         </div>
 
-        <div className="slider-text fade-in">{images[activeIndex].text}</div>
+        <div className="slider-text fade-in">{t(images[activeIndex].textKey)}</div>
       </div>
 
       <div className="controls">

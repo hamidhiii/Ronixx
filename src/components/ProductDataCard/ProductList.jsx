@@ -1,13 +1,11 @@
-// src/components/ProductCard/ProductList.jsx
 import React from "react";
-
-import { productDataCard } from "../../Constants/Index";
 import { ProductDataCard } from "./ProductDataCard";
+import { productDataCard } from "../../Constants/Index";
 
 
 const ProductList = () => {
   return (
-    <div className="product-list flex gap-4 flex-wrap justify-center">
+    <div className="product-list">
       {productDataCard.map((product) => (
         <ProductDataCard key={product.id} product={product} />
       ))}

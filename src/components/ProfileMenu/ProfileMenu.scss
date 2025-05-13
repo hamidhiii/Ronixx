@@ -1,50 +1,45 @@
-/* Стили для выпадающего меню профиля */
 .profile-menu-wrapper {
-    position: relative;
-    display: inline-block;
-   
-  
-    .profile-icon {
-      
-      cursor: pointer;
-     
-      margin-left: 30px;
-      margin-right: 10px;
-      
+  position: relative;
+  display: inline-block;
+ 
+}
 
-      .icons{
-        color: red;
-        font-size: 20px;
-      }
-      
-    }
-  
-    .profile-dropdown {
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background-color: #fff;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      width: 200px;
-      padding: 10px 0;
-      z-index: 1000;
-  
-      div {
-        padding: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #f1f1f1;
-        }
-      }
-    }
-  }
-  
-  /* Дополнительные стили для иконки и текста */
-  .profile-icon span {
-    font-size: 24px;
+.profile-icon {
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &.active {
     color: #007bff;
   }
-  
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  width: 180px;
+  padding: 10px 0;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}

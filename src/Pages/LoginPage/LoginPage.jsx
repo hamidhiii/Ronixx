@@ -16,18 +16,21 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     try {
       loginSchema.parse({ emailOrPhone, password });
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const user = users.find(
-        (u) => u.emailOrPhone === emailOrPhone && u.password === password
+        (u) => u.contact === emailOrPhone && u.password === password
       );
 
       if (user) {
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        window.dispatchEvent(new Event("storage")); 
-        navigate("/profile"); 
+        localStorage.setItem("wasRegistered", "true");
+        localStorage.setItem("currentUser", JSON.stringify(user)); // Устанавливаем текущего пользователя
+        window.dispatchEvent(new Event("storage")); // Обновление интерфейса
+
+        navigate("/"); // Переход на главную страницу после входа
       } else {
         setError("Неверные данные для входа");
       }

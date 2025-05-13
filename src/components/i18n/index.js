@@ -1,28 +1,21 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-// Переводы для узбекского и русского
-const resources = {
-    uz: {
-      translation: {
-        "Контакт и локация": "Aloqa va Joylashuv",
-      }
-    },
-    ru: {
-      translation: {
-        "Aloqa va Joylashuv": "Контакт и локация",
-      }
-    }
-  };
-  
-  i18n.use(initReactI18next)
-  .init({
-    resources,
-    lng: "ru", // Язык по умолчанию
-    interpolation: {
-      escapeValue: false, // Не экранировать значения
-    },
-  });
+import ruTranslation from "./locales/ru/translation.json";
+import uzTranslation from "./locales/uz/translation.json";
 
+const resources = {
+  ru: { translation: ruTranslation },
+  uz: { translation: uzTranslation },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: localStorage.getItem("language") || "ru",
+  fallbackLng: "ru",
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;

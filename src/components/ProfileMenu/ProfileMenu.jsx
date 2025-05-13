@@ -1,17 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 import "./ProfileMenu.scss";
-import { FaUserAlt } from "react-icons/fa";
 
-const ProfileMenu = ({ onLogout }) =>  {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-  const navigate = useNavigate();
+const ProfileMenu = () => {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef();
 
+  // Закрытие при клике вне меню
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -20,22 +19,25 @@ const ProfileMenu = ({ onLogout }) =>  {
 
   return (
     <div className="profile-menu-wrapper" ref={menuRef}>
-    <div className="profile-icon" onClick={() => setMenuOpen(!menuOpen)}>
-      <span className="icons" role="img" aria-label="profile">  <FaUserAlt /></span>
-    </div>
-    {menuOpen && (
-      <div className="profile-dropdown">
-        <div onClick={() => navigate("/orders")}>🧾 Мои заказы</div>
-        <div onClick={() => navigate("/applications")}>📬 Мои заявки</div>
-        <div onClick={() => navigate("/profile")}>🧍‍♂️ Профиль</div>
-        <div>
-    <button onClick={onLogout}>Выйти</button>
-  </div>
+      <div
+        className={`profile-icon ${open ? "active" : ""}`}
+        onClick={() => setOpen(!open)}
+      >
+        <FaUser />
       </div>
-    )}
-  </div>
-  
+
+      {open && (
+        <div className="dropdown-menu">
+          <ul>
+            <li>🧾 Мои заказы</li>
+            <li>📬 Мои заявки</li>
+            <li>🧍‍♂️ Профиль</li>
+            <li>🚪 Выйти</li>
+          </ul>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default ProfileMenu;

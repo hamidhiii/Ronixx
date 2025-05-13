@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useLocation } from 'react-router-dom';
 
 import Home from './Pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
@@ -23,10 +24,14 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import Footer from "./components/Footer/Footer";
+import SubProductDrel from "./Pages/SubProductDrel/SubProductDrel";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 
 
 export default function App() {
-  const isAuthPage = window.location.pathname === "/login" || window.location.pathname === "/register" || window.location.pathname === "/forgot-password"; 
+  const location = useLocation();
+  const isAuthPage = ["/login", "/register", "/forgot-password"].includes(location.pathname);
+  
 
   return (
     <div>
@@ -45,13 +50,15 @@ export default function App() {
         <Route path='/jacks' element={<SubCategoryJacks/>}/>
         <Route path='/product-details' element={<ProductDetail/>}/>
         <Route path='/basket' element={<Basket/>}/>
-        <Route path='/products' element={<ProductDataCard/>}/>
+        <Route path='/products' element={<SubProductDrel/>}/>
+        <Route path='/contact-Us-&-locations' element={<ContactUs/>}/>
+
 
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage/>} />
-        <Route path="/forgot-password" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
 
       {!isAuthPage && <Footer/>}  {/* Показываем Footer, если это не страница аутентификации */}

@@ -8,23 +8,28 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="cart-item">
-    <img src={item.image} alt={item.name} />
-    
-    <div className="info">
-      <p className="name">{item.name}</p>
-      <p className="barcode">Штрихкод: {item.barcode}</p>
-      
-      <div className="controls">
-        <button onClick={() => dispatch(decrement(item.id))}>-</button>
-        <span>{item.quantity}</span>
-        <button onClick={() => dispatch(increment(item.id))}>+</button>
+      {/* Отображение изображения товара */}
+      <img src={item.image} alt={item.name} />
+
+      <div className="info">
+        {/* Отображение названия товара */}
+        <p className="name">{item.name}</p>
+        <p className="barcode">Штрихкод: {item.barcode}</p>
+
+        <div className="controls">
+          {/* Кнопки для увеличения/уменьшения количества */}
+          <button onClick={() => dispatch(decrement(item.id))}>-</button>
+          <span>{item.quantity}</span>
+          <button onClick={() => dispatch(increment(item.id))}>+</button>
+        </div>
       </div>
+
+      {/* Отображение цены с учетом количества */}
+      <p className="price">{(item.price * item.quantity).toLocaleString()} UZS</p>
+
+      {/* Кнопка для удаления товара из корзины */}
+      <button className="remove" onClick={() => dispatch(removeItem(item.id))}>×</button>
     </div>
-  
-    <p className="price">{(item.price * item.quantity).toLocaleString()} UZS</p>
-    <button className="remove" onClick={() => dispatch(removeItem(item.id))}>×</button>
-  </div>
-  
   );
 };
 

@@ -1,20 +1,9 @@
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { useTheme } from '../../hooks/theme-context'
 import './ThemeToggle.scss'
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
 
   return (
     <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">

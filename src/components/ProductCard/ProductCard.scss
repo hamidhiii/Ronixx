@@ -1,17 +1,26 @@
 .product-card {
     background-color: #fff;
     padding: 20px;
+    border: transparent !important;
     border-radius: 4px;
-    width: 100%;
+    width: 100% !important;
+  
+    html.dark & {
+      background-color: #404040;
+    }
   
     .top-label {
       font-weight: bold;
       font-size: 12px;
       margin-bottom: 10px;
+      text-align: start;
     }
   
     .similar-models {
       margin-bottom: 15px;
+      p{
+        text-align: start
+      }
   
       .model-buttons {
         display: flex;
@@ -20,14 +29,16 @@
   
         button {
           padding: 5px 10px;
-          border: 1px solid #ccc;
+          border: 1px solid transparent;
           background: #f4f4f4;
           border-radius: 4px;
           cursor: pointer;
           font-size: 12px;
-  
+          &:hover {
+            background-color: #cecdcd;
+          }
           &.active {
-            background-color: #000;
+            background-color: #d90000;
             color: #fff;
           }
         }
@@ -38,15 +49,18 @@
       h4 {
         margin-top: 15px;
         font-size: 16px;
+        text-align: start
       }
   
       .product-name {
         font-weight: bold;
+        text-align: start
       }
   
       .barcodes {
         font-size: 13px;
         margin-top: 10px;
+        text-align: start
       }
   
       .action-buttons {
@@ -96,5 +110,9 @@
         align-items: center;
       }
     }
+    
+  
   }
+  
+  
   

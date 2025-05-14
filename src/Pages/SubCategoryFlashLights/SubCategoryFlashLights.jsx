@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubCategoryLights from '../../components/SubCategoryLights/SubCategoryLights'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { subCategoryLights } from '../../Constants/Index'
 
 export default function SubCategoryFlashLights() {
   return (
     <div>
         <DrilsHeader/>
-        <SubCategoryLights/>
+        <SubCategory data={subCategoryLights}/>
     </div>
   )
 }

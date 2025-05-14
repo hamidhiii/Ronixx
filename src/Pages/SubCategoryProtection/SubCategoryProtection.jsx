@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubCategorySafety from '../../components/SubCategorySafety/SubCategorySafety'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { subCategoryProtection } from '../../Constants/Index'
 
 export default function SubCategoryProtection() {
   return (
     <div>
         <DrilsHeader/>
-        <SubCategorySafety/>
+        <SubCategory data={subCategoryProtection}/>
     </div>
   )
 }

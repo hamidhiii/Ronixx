@@ -32,7 +32,7 @@ nav {
       font-size: 20px;
     }
 
-    /* Стили для иконки профиля */
+   
     .profile-icon {
       &:active {
         color: red;
@@ -68,13 +68,13 @@ nav {
       max-height: 50px;
     }
 
-    /* Стили для поиска */
+   
     .search {
       flex: 1;
       margin-left: 50px;
     }
 
-    /* Стили для блока выбора языка */
+    
     .language-switcher {
       display: flex;
       gap: 5px;
@@ -96,7 +96,7 @@ nav {
       }
     }
 
-    /* Стили для выпадающего меню профиля */
+   
     .profile-col {
       position: relative;
 
@@ -133,11 +133,11 @@ nav {
 
         button {
           background-color: transparent;
-          color: red; /* Выделение кнопки "Выйти" */
+          color: red; 
         }
       }
 
-      /* При нажатии на иконку профиля */
+      
       .profile-button {
         background: none;
         border: none;

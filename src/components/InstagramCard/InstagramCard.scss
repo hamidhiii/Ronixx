@@ -8,6 +8,10 @@
   margin: auto;
   margin-top: 50px;
   padding: 50px;
+
+     html.dark & {
+      background-color: #404040;
+    }
 .insta-card {
  margin-top: 50px;
   width: 280px;

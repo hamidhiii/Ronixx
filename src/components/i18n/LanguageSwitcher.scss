@@ -1,14 +1,12 @@
 .language-switcher {
-    position: relative;
-    display: inline-block;
-    
-  }
-  
+  position: relative;
+  display: inline-block;
+
   .language-selector {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     display: flex;
@@ -18,53 +16,56 @@
     font-size: 14px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.804);
+      transform: translateY(-2px);
+    }
+
+    .selected-language {
+      margin-right: 10px;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
   }
-  
-  .language-selector:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-  }
-  
-  .selected-language {
-    margin-right: 10px;
-  }
-  
-  .arrow {
-    transition: transform 0.3s ease;
-  }
-  
+
   .language-dropdown {
     display: block;
     position: absolute;
     top: 100%;
     left: 0;
-  
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 50px;
-    z-index: 10;
-  }
-  
-  .language-dropdown button {
-    padding: 10px 20px;
-    width: 100%;
-    margin-left: -10px;
-    text-align: left;
+    min-width: 80px;
     background-color: white;
-    border: none;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+     z-index: 10px;
+
+    button {
+      padding: 10px 20px;
+      width: 100%;
+      margin-left: 0px;
+      text-align: left;
+      background-color: white;
+      border: none;
+      font-size: 14px;
+      color: black !important;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &:nth-child(1){
+        border-bottom: 2px solid black;
+      }
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &:active {
+        background-color: #ddd;
+      }
+    }
   }
-  
-  .language-dropdown button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .language-dropdown button:active {
-    background-color: #ddd;
-  }
-  
+}

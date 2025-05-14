@@ -145,12 +145,11 @@ export const productDataCard = [
 export const menuLink = [
   {
     id: 2,
-    LinkName: 'contact_and_location', // Используем ключ для перевода
+    translationKey: 'contact_and_location', // ключ из i18n
     slug: 'contactUs',
     path: '/contact-Us-&-locations'
   },
 ];
-
 
 export const categories = [
   { id: 0 ,name: "Electric Drills", image: drel },

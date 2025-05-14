@@ -79,8 +79,9 @@ export default function Navbar() {
           </Col>
 
           <Col lg={3} className="menulist">
-            <ul>
-              <Menu />
+            <ul >
+              
+              <Menu/>
             </ul>
           </Col>
 

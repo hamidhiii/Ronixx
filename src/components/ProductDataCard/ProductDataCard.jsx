@@ -10,7 +10,7 @@ export const ProductDataCard = ({ product }) => {
     navigate('/product-details')
   }
   return (
-    <div className="product-card " id={`product-${product.id}`} onClick={handleClick}>
+    <div className="product-card" id={`product-${product.id}`} onClick={handleClick}>
       {product.hotSale && (
         <div className="hot-sale-label ">
           HOT SALE

@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubCategorySuplier from '../../components/SubCategorySuplier/SubCategorySuplier'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { SubCategorySupplier } from '../../Constants/Index'
 
 export default function SubCategorySuplierr() {
   return (
     <div>
         <DrilsHeader/>
-        <SubCategorySuplier/>
+        <SubCategory data={SubCategorySupplier}/>
     </div>
   )
 }

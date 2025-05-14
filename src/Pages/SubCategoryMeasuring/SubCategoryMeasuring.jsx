@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubCategoryMeansuring from '../../components/SubCategoryMeansuring/SubCategoryMeansuring'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { subCategoryMeansuring } from '../../Constants/Index'
 
 export default function SubCategoryMeasuring() {
   return (
     <div>
         <DrilsHeader/>
-        <SubCategoryMeansuring/>
+        <SubCategory data={subCategoryMeansuring}/>
     </div>
   )
 }

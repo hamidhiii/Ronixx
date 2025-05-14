@@ -379,7 +379,7 @@ export const SubCategorySupplier = [
   { id: 4, title: "Pallet Jacks", img: FlashLights },
 ]
 
-export const SubCategoryJacks = [
+export const subCategoryJacks = [
   { id: 1, title: "Bottle Jack", img: Pliers },
   { id: 2, title: "Floor Jack", img: Pliers },
   { id: 3, title: "Jack Stand", img: Pliers },

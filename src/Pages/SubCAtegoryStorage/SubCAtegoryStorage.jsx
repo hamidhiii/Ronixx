@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubcategoryStorage from '../../components/SubcategoryStorage/SubcategoryStorage'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { subCategoryToolBoxes } from '../../Constants/Index'
 
 export default function SubCAtegoryStorage() {
   return (
     <div>
         <DrilsHeader/>
-        <SubcategoryStorage/>
+        <SubCategory data={subCategoryToolBoxes}/>
     </div>
   )
 }

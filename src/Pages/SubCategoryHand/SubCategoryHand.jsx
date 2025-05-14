@@ -1,12 +1,13 @@
 import React from 'react'
 import DrilsHeader from '../../components/DrilsHeader/DrilsHeader'
-import SubCategoryHandTools from '../../components/SubCategoryHandTools/SubCategoryHandTools'
+import SubCategory from '../../components/SubCategory/SubCategory'
+import { subCategoryHandTools } from '../../Constants/Index'
 
 function SubCategoryHand() {
     return (
     <div>
         <DrilsHeader/>
-        <SubCategoryHandTools/>
+        <SubCategory data={subCategoryHandTools}/>
     </div>    
     )
 

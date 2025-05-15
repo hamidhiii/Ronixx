@@ -21,7 +21,7 @@ export default function ProductCard() {
     features,
     specification,
   } = productData;
-  
+
   const [activeModel, setActiveModel] = useState(model);
   const [activeAccordion, setActiveAccordion] = useState("0");
 
@@ -72,7 +72,7 @@ export default function ProductCard() {
 
       <div className="main-info">
         <h4>
-          Model: <span>{model}</span> <FaStar className="star-icon" /> 
+          Model: <span>{model}</span> <FaStar className="star-icon" />
         </h4>
         <p className="product-name">{description}</p>
 
@@ -86,12 +86,12 @@ export default function ProductCard() {
           <button className="bulk-order" onClick={handleBulkOrder}>Bulk Order</button>
         </div>
 
-        <ProductAccardion 
-          features={features} 
-          description={description} 
-          specification={specification} 
-          activeAccordion={activeAccordion} 
-          toggleAccordion={toggleAccordion} 
+        <ProductAccardion
+          features={features}
+          description={description}
+          specification={specification}
+          activeAccordion={activeAccordion}
+          toggleAccordion={toggleAccordion}
         />
       </div>
     </div>

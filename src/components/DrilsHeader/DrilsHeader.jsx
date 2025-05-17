@@ -4,7 +4,7 @@ import './DrilsHeader.scss'
 import { HeaderElectro } from '../../Constants/Index'
 import { Col, Container } from 'react-bootstrap'
 
-export default function DrilsHeader() {
+export default function DrilsHeader({data}) {
   return (
     <section>
         <div className="position-relative">
@@ -16,7 +16,7 @@ export default function DrilsHeader() {
         </div>
         
         {/* Описание */}
-        {HeaderElectro.map(({ id, title, desc }) => (
+        {data.map(({ id, title, desc }) => (
           <Container key={id} >
             <Col lg={10} className='text-center'>
               <h1 >{title}</h1>

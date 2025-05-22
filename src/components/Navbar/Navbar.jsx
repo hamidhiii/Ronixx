@@ -2,15 +2,17 @@ import React, { useEffect, useState, useRef } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import logo from "../../assets/img/Variant.png";
 import Menu from "../Menu/Menu";
-import Search from "../Search/Search";
+
 import "./Navbar.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируем твой компонент
 import { useTranslation } from "react-i18next"; // Импортируем useTranslation
+import Search from "../Search/Search";
 
-export default function Navbar() {
+
+export default function Navbar(onSearch ) {
   const { t } = useTranslation(); // Используем хук useTranslation
   const [currentUser, setCurrentUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,7 +88,7 @@ export default function Navbar() {
           </Col>
 
           <Col lg={3} className="search">
-            <Search />
+            <Search onSearch={onSearch} />
           </Col>
 
           <Col lg="auto">

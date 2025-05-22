@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируем твой компонент
 import { useTranslation } from "react-i18next"; // Импортируем useTranslation
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { t } = useTranslation(); // Используем хук useTranslation
@@ -68,6 +69,11 @@ export default function Navbar() {
     navigate("/");
   };
 
+  const itemsCount = useSelector((state) =>
+    state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+  );
+  
+
   return (
     <nav>
       <Container>
@@ -98,13 +104,16 @@ export default function Navbar() {
             <LanguageSwitcher />
           </Col>
 
-          <Col lg="auto">
-            <Link to="/basket">
-              <button>
-                <FaShoppingCart />
-              </button>
-            </Link>
-          </Col>
+          <Col lg="auto" className="basket-icon-wrapper" style={{ position: "relative" }}>
+  <Link to="/basket">
+    <button>
+      <FaShoppingCart />
+      {itemsCount > 0 && (
+        <span className="cart-badge">{itemsCount}</span>
+      )}
+    </button>
+  </Link>
+</Col>
 
           <Col
             lg="auto"

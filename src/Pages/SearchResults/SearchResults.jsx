@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { products } from "../../Constants/products";
+import './SearchResults.scss'
 
 
 export default function SearchResults() {
@@ -23,7 +24,7 @@ export default function SearchResults() {
 
 
   return (
-    <div>
+    <div className="result">
       <h2>Результаты поиска по запросу: "{searchTerm}"</h2>
       <ul>
         {filtered.length > 0 ? (

@@ -7,9 +7,10 @@ export default function SubCategory({data}) {
   const navigate = useNavigate()
   const handleClick = (id) => {
     navigate('/products')
-  }
+  } 
   return (
     <section className="sub-category">
+      
         <Container>
             <Row className="justify-content-center" onClick={handleClick}>
             {data.map(({ id, title, img }) => (

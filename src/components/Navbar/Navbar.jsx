@@ -12,7 +12,6 @@ import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируе
 import { useTranslation } from "react-i18next"; // Импортируем useTranslation
 import { useSelector } from "react-redux";
 import Search from "../Search/Search";
->>>>>>> f7ddfac74b469fe66c27318f33fb637b060a8da2
 
 export default function Navbar({ onSearch }) {
   const [menuOpen, setMenuOpen] = useState(false);

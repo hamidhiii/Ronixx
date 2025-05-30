@@ -1,24 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import logo from "../../assets/img/Variant.png";
 import Menu from "../Menu/Menu";
 
 import "./Navbar.scss";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируем твой компонент
 import { useTranslation } from "react-i18next"; // Импортируем useTranslation
-<<<<<<< HEAD
 import { useSelector } from "react-redux";
-=======
 import Search from "../Search/Search";
 >>>>>>> f7ddfac74b469fe66c27318f33fb637b060a8da2
 
-
-export default function Navbar(onSearch ) {
-  const { t } = useTranslation(); // Используем хук useTranslation
-  const [currentUser, setCurrentUser] = useState(null);
+export default function Navbar({ onSearch }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -90,10 +86,37 @@ export default function Navbar(onSearch ) {
           </Col>
 
           <Col lg={3} className="menulist">
-            <ul >
-              
-              <Menu/>
-            </ul>
+            <button className="burger-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
+              <FiMenu size={28} />
+            </button>
+
+            <nav className={`menu-nav ${menuOpen ? "open" : ""}`}>
+              <ul>
+                <Menu closeMenu={() => setMenuOpen(false)} />
+                <li>
+                  <ThemeToggle />
+                </li>
+                <li>
+                  <LanguageSwitcher />
+                </li>
+                <li>
+                  <Link to="/basket" onClick={() => setMenuOpen(false)}>
+                    🛒 Корзина
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/profile");
+                    }}
+                    className="profile-button"
+                  >
+                    Профиль
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </Col>
 
           <Col lg={3} className="search">

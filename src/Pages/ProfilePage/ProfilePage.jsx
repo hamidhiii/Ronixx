@@ -1,53 +1,131 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // для навигации
 import "./ProfilePage.scss";
 
-export default function ProfilePage() {
-  const [user, setUser] = useState(null);
-  const [codeSent, setCodeSent] = useState(false);
-  const [confirmationCode, setConfirmationCode] = useState("");
+const ProfilePage = () => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    if (currentUser) {
-      setUser(currentUser);
-    }
-  }, []);
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    address: "",
+  });
 
-  const sendConfirmationCode = () => {
-    if (!user) return;
+  const [isEditing, setIsEditing] = useState(false);
 
-    // Генерация случайного кода
-    const code = Math.floor(100000 + Math.random() * 900000);
-    setConfirmationCode(code);
+ useEffect(() => {
+  const savedUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (savedUser) {
+    setUser(savedUser);
+  } else {
+    navigate("/login");
+  }
+}, [navigate]);
 
-    // Здесь имитируем отправку кода. Для настоящего решения нужно подключить сервис.
-    localStorage.setItem("confirmationCode", code);
-    setCodeSent(true);
-
-    // В реальном приложении: подключить API для отправки email или SMS
-    console.log(`Отправлен код подтверждения: ${code}`);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
 
-  if (!user) return <p>Загрузка...</p>;
+  const handleSave = () => {
+    localStorage.setItem("user", JSON.stringify(user));
+    setIsEditing(false);
+  };
+const handleLogout = () => {
+  localStorage.removeItem("currentUser");
+  navigate("/");  
+};
 
-  const isEmail = user.emailOrPhone?.includes("@");
 
   return (
-    <div className="profile-info">
-      <p><strong>Имя:</strong> {user.name || "Не указано"}</p>
-      <p>
-        <strong>{isEmail ? "Gmail" : "Phone"}:</strong> {user.emailOrPhone}
-      </p>
-      <p><strong>Дата регистрации:</strong> {user.registeredAt || "Неизвестно"}</p>
-      <p><strong>Последний вход:</strong> {user.lastLogin || "Неизвестно"}</p>
-      <p>
-        <strong>Статус:</strong> <span className="status">📧 Не подтвержден</span>
-        {codeSent ? (
-          <p>Код подтверждения: {confirmationCode}</p>
-        ) : (
-          <button onClick={sendConfirmationCode}>Отправить код</button>
-        )}
-      </p>
+    <div className="profile-page">
+      <aside className="sidebar">
+        <nav className="menu">
+          <ul>
+            <li className="active">👤 Personal Information</li>
+            <li>📦 My Orders</li>
+            <li>📍 Manage Addresses</li>
+            <li>💳 Saved Cards</li>
+            <li onClick={handleLogout} className="logout">🚪 Log Out</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main className="profile-content">
+        <div className="profile-header">
+          <h1>My Profile</h1>
+          {!isEditing ? (
+            <button className="edit-btn" onClick={() => setIsEditing(true)}>✏️ Edit Profile</button>
+          ) : (
+            <button className="save-btn" onClick={handleSave}>✅ Save</button>
+          )}
+        </div>
+
+        <div className="profile-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label>First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                value={user.firstName}
+                onChange={handleChange}
+                readOnly={!isEditing}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                value={user.lastName}
+                onChange={handleChange}
+                readOnly={!isEditing}
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input
+                type="text"
+                name="phone"
+                value={user.phone}
+                onChange={handleChange}
+                readOnly={!isEditing}
+              />
+            </div>
+            <div className="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={user.email}
+                readOnly
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group full-width">
+              <label>Address</label>
+              <input
+                type="text"
+                name="address"
+                value={user.address}
+                onChange={handleChange}
+                readOnly={!isEditing}
+              />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
-}
+};
+
+export default ProfilePage;

@@ -1,74 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import logo from "../../assets/img/Variant.png";
 import Menu from "../Menu/Menu";
 
 import "./Navbar.scss";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируем твой компонент
-import { useTranslation } from "react-i18next"; // Импортируем useTranslation
+import LanguageSwitcher from "../i18n/LanguageSwitcher";
 import Search from "../Search/Search";
 
-
-export default function Navbar(onSearch ) {
-  const { t } = useTranslation(); // Используем хук useTranslation
-  const [currentUser, setCurrentUser] = useState(null);
+export default function Navbar({ onSearch }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Ссылки на элементы
-  const profileMenuRef = useRef(null);
-  const profileButtonRef = useRef(null);
-
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-    setCurrentUser(storedUser);
-
-    const handleStorage = () => {
-      const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
-      setCurrentUser(updatedUser);
-    };
-
-    window.addEventListener("storage", handleStorage);
-
-    // Закрываем меню при клике вне его
-    const handleClickOutside = (event) => {
-      if (
-        profileMenuRef.current &&
-        !profileMenuRef.current.contains(event.target) &&
-        !profileButtonRef.current.contains(event.target)
-      ) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("storage", handleStorage);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  const handleUserClick = () => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-
-    if (storedUser) {
-      setMenuOpen(!menuOpen);
-    } else {
-      const wasRegistered = localStorage.getItem("wasRegistered") === "true";
-      navigate(wasRegistered ? "/login" : "/register");
-    }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("currentUser");
-    setCurrentUser(null);
-    setMenuOpen(false);
-    navigate("/");
-  };
+  const toggleMobileMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <nav>
@@ -81,57 +28,41 @@ export default function Navbar(onSearch ) {
           </Col>
 
           <Col lg={3} className="menulist">
-            <ul >
-              
-              <Menu/>
-            </ul>
+            <button className="burger-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
+              <FiMenu size={28} />
+            </button>
+
+            <nav className={`menu-nav ${menuOpen ? "open" : ""}`}>
+              <ul>
+                <Menu closeMenu={() => setMenuOpen(false)} />
+                <li>
+                  <ThemeToggle />
+                </li>
+                <li>
+                  <LanguageSwitcher />
+                </li>
+                <li>
+                  <Link to="/basket" onClick={() => setMenuOpen(false)}>
+                    🛒 Корзина
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate("/profile");
+                    }}
+                    className="profile-button"
+                  >
+                    Профиль
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </Col>
 
           <Col lg={3} className="search">
             <Search onSearch={onSearch} />
-          </Col>
-
-          <Col lg="auto">
-            <ThemeToggle />
-          </Col>
-          
-          <Col lg="auto">
-            {/* Используем твой компонент LanguageSwitcher */}
-            <LanguageSwitcher />
-          </Col>
-
-          <Col lg="auto">
-            <Link to="/basket">
-              <button>
-                <FaShoppingCart />
-              </button>
-            </Link>
-          </Col>
-
-          <Col
-            lg="auto"
-            className="profile-col"
-            style={{ position: "relative" }}
-          >
-            <button
-              ref={profileButtonRef}
-              onClick={handleUserClick}
-              className="profile-button"
-            >
-              <FaUser className="profile-icon" />
-            </button>
-
-            {currentUser && menuOpen && (
-              <div ref={profileMenuRef} className="dropdown-menu-profile">
-                <Link to="/orders" onClick={() => setMenuOpen(false)}>
-                  🧾 {t("orders")}
-                </Link>
-                <Link to="/profile" onClick={() => setMenuOpen(false)}>
-                  🧍‍♂️ {t("profile")}
-                </Link>
-                <button onClick={handleLogout}>🚪 {t("logout")}</button>
-              </div>
-            )}
           </Col>
         </Row>
       </Container>

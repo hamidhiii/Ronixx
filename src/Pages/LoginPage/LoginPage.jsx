@@ -25,12 +25,13 @@ export default function LoginPage() {
         (u) => u.contact === emailOrPhone && u.password === password
       );
 
-      if (user) {
-        localStorage.setItem("wasRegistered", "true");
-        localStorage.setItem("currentUser", JSON.stringify(user)); // Устанавливаем текущего пользователя
-        window.dispatchEvent(new Event("storage")); // Обновление интерфейса
+    if (user) {
+  localStorage.setItem("wasRegistered", "true");
+  localStorage.setItem("currentUser", JSON.stringify(user)); // сохранение данных для профиля
+  window.dispatchEvent(new Event("storage"));
+  navigate("/"); // или /profile, если хочешь сразу туда
 
-        navigate("/"); // Переход на главную страницу после входа
+
       } else {
         setError("Неверные данные для входа");
       }

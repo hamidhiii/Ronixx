@@ -22,7 +22,7 @@ export default function LoginPage() {
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const user = users.find(
-        (u) => u.contact === emailOrPhone && u.password === password
+        (u) => u.contact === emailOrPhone && u.password === passwordsh 
       );
 
     if (user) {

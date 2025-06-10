@@ -1,41 +1,123 @@
-/* Общие стили для всех страниц */
-.profile-info {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-    html.dark & {
-      background-color: #404040;
-      border: none;
-      color: #fff;
+.profile-page {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  color: white;
+  width: 100%;
+
+  .sidebar {
+    width: 260px;
+    background: black;
+    border-right: 1px solid #eee;
+    padding: 24px;
+    display: block;
+    height: 420px;
+
+
+.menu li.logout {
+  color: red;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+    .menu {
+      background-color: blackёёё;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: block;  
+
+        li {
+          display: block;  
+          padding: 10px 10px;
+          margin-bottom: 8px;
+          border-radius: 8px;
+          margin-left: -22px;
+          cursor: pointer;
+          width: 90%;
+          transition: 0.2s;
+           background: black;
+            color: white;
+
+          &:hover {
+            background: rgb(34, 34, 34);
+            color: white;
+          }
+
+          &.active {
+            background: black;
+            color: white;
+            
+          }
+        }
+      }
     }
   }
-  
-  .profile-info p {
-    font-size: 16px;
-    margin: 10px 0;
+
+  .profile-content {
+    flex: 1;
+    padding: 40px;
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .edit-btn {
+        background: #121212;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+          background: #333;
+        }
+      }
+    }
+
+    .profile-form {
+      margin-top: 32px;
+
+      .form-row {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 24px;
+
+        .form-group {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #666;
+          }
+
+          input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+          }
+        }
+
+        .full-width {
+          flex: 1;
+        }
+      }
+    }
   }
-  
-  .profile-info strong {
-    font-weight: bold;
-  }
-  
-  .status {
-    color: red;
-  }
-  
-  button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+}

@@ -1,21 +1,58 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
-import { FiMenu } from "react-icons/fi";
 import logo from "../../assets/img/Variant.png";
 import Menu from "../Menu/Menu";
-
 import "./Navbar.scss";
-import { Container, Row, Col } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageSwitcher from "../i18n/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import Search from "../Search/Search";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 export default function Navbar({ onSearch }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
+  const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
+  const profileButtonRef = useRef(null);
 
-  const toggleMobileMenu = () => setMenuOpen((prev) => !prev);
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    setCurrentUser(storedUser);
+
+    const handleStorage = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
+      setCurrentUser(updatedUser);
+    };
+
+    window.addEventListener("storage", handleStorage);
+
+    return () => {
+      window.removeEventListener("storage", handleStorage);
+    };
+  }, []);
+
+  const handleUserClick = () => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (storedUser) {
+      navigate("/profile");
+    } else {
+      const wasRegistered = localStorage.getItem("wasRegistered") === "true";
+      navigate(wasRegistered ? "/login" : "/register");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setCurrentUser(null);
+    navigate("/");
+  };
+
+  const itemsCount = useSelector((state) =>
+    state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+  );
 
   return (
     <nav>
@@ -28,41 +65,56 @@ export default function Navbar({ onSearch }) {
           </Col>
 
           <Col lg={3} className="menulist">
-            <button className="burger-btn" onClick={toggleMobileMenu} aria-label="Toggle menu">
-              <FiMenu size={28} />
-            </button>
-
-            <nav className={`menu-nav ${menuOpen ? "open" : ""}`}>
-              <ul>
-                <Menu closeMenu={() => setMenuOpen(false)} />
-                <li>
-                  <ThemeToggle />
-                </li>
-                <li>
-                  <LanguageSwitcher />
-                </li>
-                <li>
-                  <Link to="/basket" onClick={() => setMenuOpen(false)}>
-                    🛒 Корзина
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      setMenuOpen(false);
-                      navigate("/profile");
-                    }}
-                    className="profile-button"
-                  >
-                    Профиль
-                  </button>
-                </li>
-              </ul>
-            </nav>
+            <ul>
+              <Menu />
+            </ul>
           </Col>
 
           <Col lg={3} className="search">
             <Search onSearch={onSearch} />
+          </Col>
+
+          <Col lg="auto" className="ThemeToggle">
+            <ThemeToggle />
+          </Col>
+
+          <Col lg="auto" className="LanguageSwitcher">
+            <LanguageSwitcher />
+          </Col>
+
+         
+
+          <Col xs="auto" className="d-lg-none">
+            <MobileMenu onSearch={onSearch} />
+          </Col>
+
+          <Col
+            lg="auto"
+            className="basket-icon-wrapper"
+            style={{ position: "relative" }}
+          >
+            <Link to="/basket">
+              <button>
+                <FaShoppingCart />
+                {itemsCount > 0 && (
+                  <span className="cart-badge">{itemsCount}</span>
+                )}
+              </button>
+            </Link>
+          </Col>
+
+          <Col
+            lg="auto"
+            className="profile-col"
+            style={{ position: "relative" }}
+          >
+            <button
+              ref={profileButtonRef}
+              onClick={handleUserClick}
+              className="profile-button"
+            >
+              <FaUser className="profile-icon" />
+            </button>
           </Col>
         </Row>
       </Container>

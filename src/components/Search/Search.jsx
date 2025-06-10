@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { products } from "../../Constants/products";
-import { Search as SearchIcon } from "lucide-react"; // или любая иконка
+import { Search as SearchIcon } from "lucide-react"; 
 import "./Search.scss";
 
 export default function Search() {

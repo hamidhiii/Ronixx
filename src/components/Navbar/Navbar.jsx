@@ -9,11 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageSwitcher from "../i18n/LanguageSwitcher"; // Импортируем твой компонент
 import { useTranslation } from "react-i18next"; // Импортируем useTranslation
-<<<<<<< HEAD
 import { useSelector } from "react-redux";
-=======
 import Search from "../Search/Search";
->>>>>>> f7ddfac74b469fe66c27318f33fb637b060a8da2
 
 
 export default function Navbar(onSearch ) {

@@ -1,39 +1,36 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next"; // Импортируем useTranslation
-import "./Drum.scss";
-import product1 from "../../assets/img/Product1.svg";
+import { useTranslation } from "react-i18next";
 
-const images = [
-  { src: product1, textKey: "electro_tools", path: "/electro-tools" },
-  { src: product1, textKey: "hand_tools", path: "/hand-tools" },
-  { src: product1, textKey: "battery_tools", path: "/battery-tools" },
-  { src: product1, textKey: "flashlights", path: "/flashlights" },
-  { src: product1, textKey: "measuring_devices", path: "/measuring-devices" },
-  { src: product1, textKey: "protection", path: "/protection" },
-  { src: product1, textKey: "accessories", path: "/accessories" },
-  { src: product1, textKey: "toolboxes", path: "/toolboxes" },
-  { src: product1, textKey: "lifting_equipment", path: "/lifting-equipment" },
-  { src: product1, textKey: "jacks", path: "/jacks" },
-];
+import "./Drum.scss";
+import { useGetCategoriesQuery } from "../../services/api/categoriesApi";
+
+const BASE_URL = "http://139.59.62.159";
 
 const Drum = () => {
-  const { t } = useTranslation(); // Используем функцию перевода
+  const { t } = useTranslation();
+  const { data: categories = [], isLoading, isError, error } = useGetCategoriesQuery();
+
   const [activeIndex, setActiveIndex] = useState(0);
-  const total = images.length;
+
+  const total = categories.length;
   const radius = 200;
-  const deltaAngle = 360 / total;
+  const deltaAngle = total > 0 ? 360 / total : 0;
 
   const mod = (n, m) => ((n % m) + m) % m;
 
-  const handleUp = () => setActiveIndex((prev) => mod(prev - 1, total));
-  const handleDown = () => setActiveIndex((prev) => mod(prev + 1, total));
+  const handleUp = () => setActiveIndex(prev => mod(prev - 1, total));
+  const handleDown = () => setActiveIndex(prev => mod(prev + 1, total));
+
+  if (isLoading) return <div>Загрузка категорий...</div>;
+  if (isError) return <div>Ошибка загрузки: {error?.data?.message || "Неизвестная ошибка"}</div>;
+  if (total === 0) return <div>Категории не найдены</div>;
 
   return (
     <div className="background">
       <div className="slider-container">
         <div className="circle-slider">
-          {images.map((image, index) => {
+          {categories.map((category, index) => {
             const angle = (index - activeIndex) * deltaAngle;
             const x = radius * Math.cos((angle * Math.PI) / 180);
             const y = radius * Math.sin((angle * Math.PI) / 180);
@@ -41,21 +38,23 @@ const Drum = () => {
 
             return (
               <Link
-                key={index}
-                to={image.path}
+                key={category.id}
+                to={category.path}
                 className={`slider-item ${isActive ? "active" : ""}`}
                 style={{
                   transform: `translate(${x}px, ${y}px)`,
                   zIndex: total - Math.abs(index - activeIndex),
                 }}
               >
-                <img src={image.src} alt={t(image.textKey)} />
+                <img
+                  src={`${BASE_URL}${category.image}`}
+                  alt={t(category.name)}
+                />
               </Link>
             );
           })}
         </div>
-
-        <div className="slider-text fade-in">{t(images[activeIndex].textKey)}</div>
+        <div className="slider-text fade-in">{t(categories[activeIndex].name)}</div>
       </div>
 
       <div className="controls">

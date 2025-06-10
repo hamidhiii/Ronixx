@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { products } from "../../Constants/products";
+import { FaSearch } from "react-icons/fa";
 
 
 export default function Search() {
@@ -79,7 +80,9 @@ const filtered = products.filter((item) => {
   };
 
   return (
-    <div className="search-wrapper" style={{ position: "relative" }}>
+    <form className="search-form">
+      <div className="input-wrapper" >
+      <FaSearch className="search-icon" />
       <input
         type="text"
         placeholder="Поиск инструмента..."
@@ -130,5 +133,6 @@ const filtered = products.filter((item) => {
         </ul>
       )}
     </div>
+    </form>
   );
 }

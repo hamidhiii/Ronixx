@@ -7,12 +7,10 @@
 
 img.headerfotos {
     width: 100%;
-    height: auto;
-    transition: transform 0.3s ease-in-out;
-    
-    &:hover {
-        transform: scale(1.05);
-    }
+  height: 500px;
+  object-fit: cover;
+    object-position: center;
+
 }
 .text-center {
     // border: 1px solid #000;

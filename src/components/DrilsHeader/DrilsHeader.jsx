@@ -1,29 +1,27 @@
-import React from 'react'
-import headerfoto from '../../assets/img/638434286704017836.webp'
-import './DrilsHeader.scss'
-import { HeaderElectro } from '../../Constants/Index'
-import { Col, Container } from 'react-bootstrap'
+import React from 'react';
+import './DrilsHeader.scss';
+import { Col, Container } from 'react-bootstrap';
 
-export default function DrilsHeader({data}) {
+export default function DrilsHeader({ data }) {
+  const { id, title, desc, mainImage } = data[0] || {};
+
   return (
     <section>
-        <div className="position-relative">
-          <img
-            src={headerfoto}
-            alt="Wholesale Power Tools"
-            className='headerfotos'
-          />
-        </div>
-        
-        {/* Описание */}
-        {data.map(({ id, title, desc }) => (
-          <Container key={id} >
-            <Col lg={10} className='text-center'>
-              <h1 >{title}</h1>
-              <p>{desc}</p>
-            </Col>
-          </Container>
-        ))}
+      <div className="position-relative ">
+        <img
+          src={mainImage ? `http://139.59.62.159${mainImage}` : ''}
+          alt={title || 'Category Image'}
+          className='headerfotos'
+        />
+      </div>
+
+      {/* Описание */}
+      <Container key={id}>
+        <Col lg={10} className='text-center'>
+          <h1>{title}</h1>
+          <p>{desc}</p>
+        </Col>
+      </Container>
     </section>
-  )
+  );
 }

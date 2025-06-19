@@ -17,7 +17,7 @@ export default function Footer() {
                 </Col>
 
                 <Col className='lg' lg={10}>
-                    <Col lg={4}>
+                    <Col lg={4} md={4}>
                         <ul>
                             <li>{t('all_products')}</li> {/* Используем ключ для перевода */}
                             <li>
@@ -31,7 +31,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={4} md={4}>
                         <ul>
                             <li>
                                 <Link to={''}>{t('protection_tools')}</Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={4} md={4}>
                         <ul>
                             <li>
                                 <Link to={''}>{t('lifting_equipment')}</Link>

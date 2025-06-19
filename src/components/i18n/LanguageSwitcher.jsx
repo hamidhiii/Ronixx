@@ -22,14 +22,15 @@ function LanguageSwitcher() {
       <div className="language-selector">
         <span className="selected-language">{currentLanguage.toUpperCase()}</span>
         <span className="arrow">▼</span>
-      </div>
-
-      {isDropdownOpen && (
+         {isDropdownOpen && (
         <div className="language-dropdown">
           <button onClick={() => handleLanguageChange("ru")}>RU</button>
           <button onClick={() => handleLanguageChange("uz")}>UZ</button>
         </div>
       )}
+      </div>
+
+     
     </div>
   );
 }

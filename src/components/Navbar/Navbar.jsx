@@ -3,6 +3,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 import logo from "../../assets/img/Variant.png";
 import Menu from "../Menu/Menu";
 import "./Navbar.scss";
+import "../../components/i18n/LanguageSwitcher.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
@@ -103,7 +104,7 @@ export default function Navbar({ onSearch }) {
             </Link>
           </Col>
 
-          <Col
+          <Col 
             lg="auto"
             className="profile-col"
             style={{ position: "relative" }}

@@ -55,7 +55,7 @@
       cursor: pointer;
       border-radius: 5px;
 
-      &:nth-child(1){
+      &:nth-child(1) {
         border-bottom: 2px solid black;
       }
 
@@ -66,6 +66,23 @@
       &:active {
         background-color: #ddd;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+ 
+  .language-switcher {
+    .language-selector {
+      position: absolute;
+      margin-top: -80px;
+    }
+  }
+
+  .language-dropdown {
+    button {
+      padding: 8px 16px;
+      font-size: 12px;
     }
   }
 }

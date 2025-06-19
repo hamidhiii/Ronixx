@@ -194,11 +194,13 @@ nav {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .logo {
     width: 100px;
     margin-top: 10px !important;
   }
+
+  
 
   .search,
   .menulist,
@@ -206,6 +208,11 @@ nav {
   .profile-col {
     display: none;
   }
+   .language-selector{
+    display: flex;
+    margin-left: 60%;
+    
+   }
 
   .ThemeToggle {
     width: 70px;

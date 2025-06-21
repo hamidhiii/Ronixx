@@ -36,8 +36,8 @@ export default function MobileMenu({ onSearch }) {
 
       <Offcanvas show={show} onHide={toggleShow} placement="end">
         <Offcanvas.Body className="bodyy">
-          <div className="mobile-menu-content">
-            <Search onSearch={onSearch} />
+          <div clasтоьлбдщзsName="mobile-menu-content">
+            <Search onSearch={onSearch}/>
             <div className="menu-icons">
               <button className="menu-icon" onClick={handleUserClick}>
                 <FaUser />

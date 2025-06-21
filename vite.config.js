@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://139.59.62.159',
+        target: 'https://ronixtools.duckdns.org',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

@@ -9,7 +9,7 @@ export default function DrilsHeader({ data }) {
     <section>
       <div className="position-relative ">
         <img
-          src={mainImage ? `http://139.59.62.159${mainImage}` : ''}
+          src={mainImage ? `https://ronixtools.duckdns.org${mainImage}` : ''}
           alt={title || 'Category Image'}
           className='headerfotos'
         />

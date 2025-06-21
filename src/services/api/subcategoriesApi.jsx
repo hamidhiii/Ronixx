@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const subcategoriesApi = createApi({
   reducerPath: "subcategoriesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://139.59.62.159/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://ronixtools.duckdns.org/" }),
   endpoints: (builder) => ({
     getSubCategories: builder.query({
       query: () => "subcategories/",

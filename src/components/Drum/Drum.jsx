@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import "./Drum.scss";
 import { useGetCategoriesQuery } from "../../services/api/categoriesApi";
 
-const BASE_URL = "http://139.59.62.159";
+const BASE_URL = "https://ronixtools.duckdns.org";
 
 const Drum = () => {
   const { t } = useTranslation();

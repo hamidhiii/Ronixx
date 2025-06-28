@@ -21,6 +21,7 @@ import SubCategoryPage from "./Pages/SubCategoryPage/SubCategoryPage";
 import ManageAddressesPage from "./Pages/ManageAddressesPage/ManageAddressesPage";
 import SavedCardsPage from "./Pages/SavedCardsPage/SavedCardsPage";
 import MyOrdersPage from "./Pages/MyOrdersPage/MyOrdersPage";
+import ProductsBySubcategory from "./Pages/ProductsBySubcategory/ProductsBySubcategory";
 
 export default function App() {
   const location = useLocation();
@@ -41,11 +42,9 @@ export default function App() {
       {!isAuthPage && <Navbar onSearch={handleSearch} />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/:slug"
-          element={<SubCategoryPage categories={categories} />}
-        />
-        <Route path="/product-details" element={<ProductDetail />} />
+        <Route path="/product/:path" element={<ProductsBySubcategory />} />
+        <Route path="/:slug" element={<SubCategoryPage categories={categories}/>} />
+        <Route path="/product/details/:productName" element={<ProductDetail />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/products" element={<SubProductDrel />} />
         <Route path="/contact-Us-&-locations" element={<ContactUs />} />

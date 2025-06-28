@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import "./CaruselProduct.scss";
 
 const CarouselProduct = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState(images[0]);
+  const fullImages = images.length > 0
+    ? images.map(img => img.startsWith('http') ? img : `https://ronixtools.duckdns.org${img}`)
+    : [];
+
+  const [selectedImage, setSelectedImage] = useState(fullImages[0]);
 
   return (
     <div className="image-carousel">
       <div className="carousel-thumbnails">
-        {images.map((image, index) => (
+        {fullImages.map((image, index) => (
           <img
             key={index}
             src={image}

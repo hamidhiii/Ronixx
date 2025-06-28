@@ -1,0 +1,26 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const productsApi = createApi({
+  reducerPath: "productsApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://ronixtools.duckdns.org" }),
+  endpoints: (builder) => ({
+    getProducts: builder.query({
+      query: () => "/product/all/",
+    }),
+    getProductsBySubcategory: builder.query({
+      query: (subcategoryPath) => `/product/${subcategoryPath}/`,
+    }),       
+    getProductById: builder.query({
+      query: (productName) => `/product/details/${encodeURIComponent(productName)}/`,
+    }),
+    
+    
+    
+  }),
+});
+
+export const { 
+  useGetProductsQuery, 
+  useGetProductsBySubcategoryQuery,
+  useGetProductByIdQuery,
+} = productsApi;

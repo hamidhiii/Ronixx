@@ -6,14 +6,23 @@ const FeatureList = () => {
   return (
     <div className={styles.features}>
       {features.map((feature, index) => (
-        <div key={index} className={`${styles.card} ${styles[`card${index + 1}`]}`}>
-          {feature.image ? (
-            <img src={feature.image} alt={feature.title} className={styles.image} />
-          ) : (
-            <div className={styles.icon}>{feature.icon}</div>
+        <div
+          key={index}
+          className={`${styles.card} ${styles[`card${index + 1}`]}`}
+          style={
+            index < 2 && feature.image
+              ? { backgroundImage: `url(${feature.image})` }
+              : {}
+          }
+        >
+          {index >= 2 && feature.image && (
+            <img src={feature.image} alt={feature.title} className={styles.topImage} />
           )}
-          <h3>{feature.title}</h3>
-          <p>{feature.text}</p>
+
+          <div className={styles.content}>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
         </div>
       ))}
     </div>

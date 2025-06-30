@@ -1,17 +1,17 @@
 .sectionCore{
     margin-top: 100px;
     padding: 50px 0;
+    margin-bottom: 100px;
  
     text-align: center;
 
     h2{
-        color: white;
+        color: black;
     }
 
     p{
-        color: white;
+        color: black;
     }
-
     
     
 
@@ -19,4 +19,13 @@
 
   
 
+    html.dark & {
+        h2{
+            color: white;
+        }
+    
+        p{
+            color: white;
+        }
+      }
 }

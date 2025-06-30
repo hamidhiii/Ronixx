@@ -11,33 +11,30 @@ export default function ProductDesc({ product }) {
 
   const productImg = [`https://ronixtools.duckdns.org${product.image}`];
 
-  const productDesc = [
-    {
-      id: 1,
-      title: "Модель",
-      content: product.model,
-    },
-    {
-      id: 2,
-      title: "Производитель",
-      content: product.translations?.en?.made_in || "Не указано",
-    },
-    {
-      id: 3,
-      title: "Цена",
-      content: `${product.price} $`,
-    },
-  ];
+  // Формируем данные для аккордеона из details
+  const productDesc = product.details?.map((detail, index) => ({
+    id: index + 1,
+    title: detail.translations?.en?.title || `Раздел ${index + 1}`,
+    content: detail.translations?.en?.description || 'Нет описания'
+  })) || [];
 
   return (
     <section>
       <Container>
         <Row>
           {productImg.map((img, index) => (
-            <Col key={index} md={12}>
-              <img src={img} alt={`Product Image ${index + 1}`} />
+            <Col key={index} lg={12} md={12} className="d-flex justify-content-center">
+              <div className="image-wrapper">
+                <img src={img} alt={`Product Image ${index + 1}`} className="product-main-image" style={{
+    maxWidth: '100%',
+    height: 'auto',
+    objectFit: 'contain',
+    display: 'block'
+  }} />
+              </div>
             </Col>
           ))}
+
 
           <Col md={12}>
             <Accordion activeKey={activeAccordion} className="product-desc-accordion">

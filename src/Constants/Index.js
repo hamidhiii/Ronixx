@@ -6,6 +6,11 @@ import productdescImg from '../assets/img/product-setailk.webp'
 import drel from '../assets/img/Driver.svg'
 import BigDrel1 from '../assets/img/BigDrel1.svg'
 import Insta from '../assets/img/Vector.svg'
+import features1 from '../assets/img/features.webp'
+import features2 from '../assets/img/features1.webp'
+import features3 from '../assets/img/features2.webp'
+import features4 from '../assets/img/features3.webp'
+import features5 from '../assets/img/features4.webp'
 
 export const productDataCard = [
   {
@@ -163,27 +168,27 @@ export const features = [
   {
     title: "Качество",
     text: "РОНИКС – производитель высококачественных инструментов, изготовление которых подвергается тщательному контролю качества и протоколам по гарантиям безопасности.",
-    image: "/images/drill.jpg",
+    image: features1,
   },
   {
     title: "Разнообразие",
     text: "RРОНИКС предлагает свыше 2500 типов инструментов и 36000 запасных частей разнообразного вида в 9 отдельных категорий.",
-    image: "/images/tools.jpg",
+    image: features2,
   },
   {
     title: "Разумные цены",
     text: "РОНИКС стремится предлагать исключительное качество, обеспечивая при этом финансовую доступность клиентам с разными потребностями.",
-    image: "/images/tools.jpg",
+    image: features3,
   },
   {
     title: "Обслуживание клиентов",
     text: "РОНИКС гарантирует всем клиентам получение 24/7 поддержкой для удовлетворения потребностей и повышения их успехов на рынке инструментов.",
-    image: "/images/tools.jpg",
+    image: features4,
   },
   {
     title: "Профессиональное поведение",
     text: "РОНИКС имеет глубокую приверженность и к оценке кадровой службы, и к клиентам, которые выбрали РОНИКС.",
-    image: "/images/tools.jpg",
+    image: features5,
   },
 ];
 

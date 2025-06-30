@@ -1,80 +1,117 @@
 .features {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Две колонки */
-  grid-template-rows: auto auto; /* Две строки */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
   gap: 20px;
   justify-items: center;
   align-items: start;
 
   .card {
-    background: rgb(171, 9, 9);
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
+    min-height: 200px;
+    gap: 10px;
+
+    .content {
+      text-align: left;
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: black;
+      }
+
+      p {
+        margin: 0.5rem 0 0 0;
+        font-size: 1rem;
+        color: black;
+      }
+    }
   }
 
-  /* Верхние две карточки */
+  /* Для картинок сверху (начиная с 3-й карточки) */
+  .topImage {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* Позиции карточек оставляем как у тебя */
   .card:nth-child(1) {
     grid-column: span 1;
-    width: 100%;
-    border: 2px solid rgb(6, 3, 3);
+    width: 98%;
     height: 120%;
     margin-left: -2%;
+    .content{
+      max-width: 50%;
+    }
   }
-  
+
   .card:nth-child(2) {
     grid-column: span 1;
-    width: 100%;
+    width: 98%;
     height: 120%;
     margin-left: -10%;
-    border: 2px solid rgb(6, 3, 3);
+    .content{
+      max-width: 50%;
+    }
   }
-  
+
   .card:nth-child(3),
   .card:nth-child(4),
   .card:nth-child(5) {
-    margin-top: 3.65%;
+    margin-top: 4%;
+    justify-content: flex-start; /* Текст и картинка идут сверху вниз */
   }
-  
+
   .card:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
     margin-right: 29.17%;
     margin-left: -6%;
-    width: 67%;
+    width: 65%;
     height: 100%;
-    border: 1px solid rgb(6, 3, 3);
   }
-  
+
   .card:nth-child(4) {
     grid-column: 2;
     grid-row: 2;
     width: 65%;
     height: 100%;
     margin-left: 23%;
-    border: 1px solid rgb(6, 3, 3);
   }
-  
+
   .card:nth-child(5) {
     grid-column: 1;
     grid-row: 2;
     margin-right: -100%;
     margin-left: -1.5%;
-    width: 67%;
+    width: 65%;
     height: 100%;
-    border: 1px solid rgb(6, 3, 3);
   }
-}  
-
+}
 
 @media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
 
-
-
-
+    .card {
+      margin: 0 !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
 }

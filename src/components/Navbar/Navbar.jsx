@@ -89,12 +89,12 @@ export default function Navbar({ onSearch }) {
             <MobileMenu onSearch={onSearch} />
           </Col>
 
-          <Col
+          {/* <Col
             lg="auto"
             className="basket-icon-wrapper"
             style={{ position: "relative" }}
-          >
-            <Link to="/basket">
+          > */}
+            {/* <Link to="/basket">
               <button>
                 <FaShoppingCart />
                 {itemsCount > 0 && (
@@ -116,7 +116,7 @@ export default function Navbar({ onSearch }) {
             >
               <FaUser className="profile-icon" />
             </button>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </nav>

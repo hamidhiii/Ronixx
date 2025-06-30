@@ -2,59 +2,42 @@
   position: relative;
   width: 264px !important;
   padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) ;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #fff;
   text-align: center;
+  transition: all 0.3s ease;
 
-  .hot-sale-label {
+  &:hover::after {
+    content: '';
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    background-color: #ff4d4d;
-    color: white;
-
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-weight: bold;
-  }
-
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    transition: height 0.3s ease-in-out; 
+    cursor: pointer;
+}
   .product-image {
     width: 100%;
-    height: 10rem;
+    height: 180px; // сделано чуть выше для более пропорционального отображения
     object-fit: contain;
+    cursor: pointer;
   }
 
   .product-details {
-    margin-top: 0.5rem;
-  }
-
-  .product-title {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18.2px;
-    letter-spacing: 0.15px;
-    vertical-align: middle;
-    text-transform: uppercase;
-    color: #3d3d3d;
-    margin-bottom: 15px;
-  }
-
-  .product-specs {
-    font-weight: 300;
-    letter-spacing: 0.06px;
-    vertical-align: middle;
-    font-size: 14px;
-    line-height: 17px;
-    color: #3d3d3d;
-    text-align: start;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
   .product-code {
     font-weight: 400;
-    font-size: 11.44px;
+    font-size: 12px;
     line-height: 100%;
     letter-spacing: 0.15px;
     text-align: start;
@@ -62,27 +45,34 @@
     color: #3d3d3d;
   }
 
-  .compare-button {
-    margin-top: 0.75rem;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background-color 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #0056b3;
-    }
+  .product-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.15px;
+    text-transform: uppercase;
+    color: #3d3d3d;
+    text-align: start;
   }
+
+  .product-specs-row {
+    display: flex;
+    justify-content: flex-start; // элементы идут слева направо
+    gap: 10px; // расстояние между ними
+    flex-wrap: wrap; // если не влезает, переносится на новую строку
+  }
+  
+  .spec-item {
+    font-weight: 300;
+    font-size: 14px;
+    color: #3d3d3d;
+  }
+
 }
 
 .product-list {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start; // выравнивание как в примере
 }

@@ -58,7 +58,7 @@ export default function ProductCard({ product }) {
         </div> */}
 
         <ProductAccardion
-          features={features}
+          features={translations?.en?.features} 
           description={translations?.en?.description}
           specification={specifications}
           activeAccordion={activeAccordion}

@@ -1,24 +1,25 @@
-import React from 'react'
-import { Productspecsification } from '../../Constants/Index'
-import './ProductSpec.scss'
+import React from 'react';
+import './ProductSpec.scss';
 
-export default function ProductSpec() {
+export default function ProductSpec({ specification }) {
+  const spec = specification?.translations?.en;
+
+  if (!spec) {
+    return <div>Нет данных о характеристиках</div>;
+  }
+
   return (
     <div className="product-specs-table">
       <table>
         <tbody>
-          {
-            Productspecsification.map(({label, value}) => {
-                return (
-                    <tr >
-                    <td className="spec-label">{label}</td>
-                    <td className="spec-value">{value}</td>
-                  </tr>
-                )
-            })
-          }
+          {Object.entries(spec).map(([key, value]) => (
+            <tr key={key}>
+              <td className="spec-label">{key}</td>
+              <td className="spec-value">{value || "Не указано"}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }

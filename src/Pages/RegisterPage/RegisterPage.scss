@@ -1,0 +1,71 @@
+/* Стили для страницы регистрации */
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  
+    .register-form {
+      background-color: #fff;
+      padding: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      text-align: center;
+  
+      h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #333;
+      }
+  
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+  
+        &:focus {
+          outline: none;
+          border-color: red;
+        }
+      }
+  
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: red;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: rgb(222, 2, 2);
+        }
+      }
+  
+      .login-link {
+        font-size: 14px;
+        margin-top: 10px;
+  
+        a {
+          color: #007bff;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

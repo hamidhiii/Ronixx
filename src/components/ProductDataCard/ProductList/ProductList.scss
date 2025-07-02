@@ -1,0 +1,11 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Расстояние между карточками */
+  justify-content: center; /* Центрирование карточек */
+}
+
+.product-cards {
+  flex: 0 0 auto; /* Запрещаем растягивание карточек */
+  width: 200px; /* Фиксированная ширина */
+}

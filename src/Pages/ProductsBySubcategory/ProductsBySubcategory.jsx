@@ -2,13 +2,27 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetProductsBySubcategoryQuery } from "../../services/api/productsApi";
 import { ProductDataCard } from "../../components/ProductDataCard/ProductDataCard";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const ProductsBySubcategory = () => {
   const { path } = useParams();
-
   const { data: products = [], isLoading, isError, error } = useGetProductsBySubcategoryQuery(path);
 
-  if (isLoading) return <div>Загрузка продуктов...</div>;
+  if (isLoading) {
+    return (
+      <div className="product-list">
+        {[...Array(6)].map((_, index) => (
+          <div key={index} className="skeleton-card" style={{ width: '264px', margin: '10px' }}>
+            <Skeleton height={180} />
+            <Skeleton height={20} style={{ marginTop: '10px' }} />
+            <Skeleton height={15} count={2} style={{ marginTop: '5px' }} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   if (isError) return <div>Ошибка: {error?.data?.message || "Неизвестная ошибка"}</div>;
   if (!products.length) return <div>Нет продуктов</div>;
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Search as SearchIcon } from "lucide-react";
+import { Search as SearchIcon, X as ClearIcon } from "lucide-react";
+import { useGetAllProductsQuery } from "../../services/api/productsApi";
 import "./Search.scss";
-import { useGetAllProductsQuery } from "../../services/api/productsApi"; // импорт API
 
-export default function Search() {
+export default function Search({ setIsSearchOpen, mobile }) {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -64,6 +64,7 @@ export default function Search() {
       setQuery("");
       setSuggestions([]);
       setActiveIndex(-1);
+      setIsSearchOpen && setIsSearchOpen(false);
     }
   };
 
@@ -72,14 +73,11 @@ export default function Search() {
     setQuery("");
     setSuggestions([]);
     setActiveIndex(-1);
+    setIsSearchOpen && setIsSearchOpen(false);
   };
 
   return (
-    <form
-      className="search-form"
-      role="search"
-      onSubmit={(e) => e.preventDefault()}
-    >
+    <form className={mobile ? "search-fullscreen-wrapper" : "search-form"} role="search" onSubmit={(e) => e.preventDefault()}>
       <div className="search-wrapper">
         <SearchIcon className="search-icon" />
         <input
@@ -89,11 +87,13 @@ export default function Search() {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           aria-autocomplete="list"
-          aria-activedescendant={
-            activeIndex >= 0 ? `suggestion-${activeIndex}` : undefined
-          }
+          aria-activedescendant={activeIndex >= 0 ? `suggestion-${activeIndex}` : undefined}
           role="combobox"
         />
+        {query.length > 0 && (
+          <ClearIcon className="clear-icon" onClick={() => setQuery("")} />
+        )}
+
         {isLoading && (
           <div className="skeleton-wrapper">
             {Array.from({ length: 5 }).map((_, index) => (
@@ -101,11 +101,9 @@ export default function Search() {
             ))}
           </div>
         )}
+
         {suggestions.length > 0 && (
-          <ul
-            className={`suggestions ${suggestions.length > 0 ? "show" : ""}`}
-            role="listbox"
-          >
+          <ul className="suggestions show" role="listbox">
             {suggestions.map((item, index) => (
               <li
                 id={`suggestion-${index}`}
@@ -124,6 +122,10 @@ export default function Search() {
           </ul>
         )}
       </div>
+
+      {mobile && (
+        <ClearIcon className="close-btn" onClick={() => setIsSearchOpen(false)} />
+      )}
     </form>
   );
 }

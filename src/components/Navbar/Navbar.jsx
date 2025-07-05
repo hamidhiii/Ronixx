@@ -11,7 +11,7 @@ import LanguageSwitcher from "../i18n/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import Search from "../Search/Search";
-import MobileMenu from "../MobileMenu/MobileMenu";
+
 
 export default function Navbar({ onSearch }) {
   const { t } = useTranslation();
@@ -71,9 +71,11 @@ export default function Navbar({ onSearch }) {
             </ul>
           </Col>
 
-          <Col lg={3} className="search">
-            <Search onSearch={onSearch} />
-          </Col>
+        <Col xs={12} sm={8} md={6} lg={3} className="search">
+  <Search onSearch={onSearch} />
+</Col>
+
+
 
           <Col lg="auto" className="ThemeToggle">
             <ThemeToggle />
@@ -85,16 +87,16 @@ export default function Navbar({ onSearch }) {
 
          
 
-          <Col xs="auto" className="d-lg-none">
+          {/* <Col xs="auto" className="d-lg-none">
             <MobileMenu onSearch={onSearch} />
           </Col>
 
-          {/* <Col
+          <Col
             lg="auto"
             className="basket-icon-wrapper"
             style={{ position: "relative" }}
-          > */}
-            {/* <Link to="/basket">
+          >
+            <Link to="/basket">
               <button>
                 <FaShoppingCart />
                 {itemsCount > 0 && (
@@ -102,9 +104,9 @@ export default function Navbar({ onSearch }) {
                 )}
               </button>
             </Link>
-          </Col>
+          </Col> */}
 
-          <Col 
+          {/* <Col 
             lg="auto"
             className="profile-col"
             style={{ position: "relative" }}

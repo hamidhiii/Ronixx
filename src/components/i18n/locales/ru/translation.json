@@ -15,7 +15,11 @@
     "flashlights_wholesale": "Фонари и фонарики оптом",
     "protection_tools": "Средства индивидуальной защиты (СИЗ)",
     "accessories_for_tools": "Аксессуары для инструментов",
-    "toolboxes_bags": "Ящики и сумки для инструмента"
+    "toolboxes_bags": "Ящики и сумки для инструмента",
+    "features": "Характеристики",
+"description": "Описание",
+"specification": "Спецификация"
+
 
   
 }

@@ -15,6 +15,9 @@
   "flashlights_wholesale": "Fonarlar va fonariklar ulgurji",
   "protection_tools": "Shaxsiy himoya vositalari (SHV)",
   "accessories_for_tools": "Asboblar uchun aksessuarlar",
-  "toolboxes_bags": "Asboblar uchun qutilar va sumkalar"
- 
+  "toolboxes_bags": "Asboblar uchun qutilar va sumkalar",
+ "features": "Xususiyatlar",
+"description": "Tavsif",
+"specification": "Texnik xususiyatlar"
+
 }

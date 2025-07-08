@@ -1,8 +1,9 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+
 import Header from '../../components/Header/Header'
-import Drum from '../../components/Drum/Drum'
 import SectionCore from '../../components/SectionCore/SectionCore'
+import DrumWrapper from '../../components/Drum/DrumWrapper'
+
 
 
 
@@ -12,7 +13,7 @@ export default function Home() {
     <div>
        
         <Header/>
-        <Drum/>
+        <DrumWrapper />
         <SectionCore/>
      
         

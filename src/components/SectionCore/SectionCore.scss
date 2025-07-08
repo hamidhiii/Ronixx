@@ -7,6 +7,7 @@
 
     h2{
         color: black;
+
     }
 
     p{
@@ -28,4 +29,21 @@
             color: white;
         }
       }
+}
+
+
+@media(max-width: 768px) {
+    .sectionCore {
+        padding: 20px 0;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        h2 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
 }

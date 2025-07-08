@@ -1,0 +1,76 @@
+.drum-mobile {
+  background: #fff;
+  padding: 16px;
+  text-align: center;
+  position: relative;
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 620px; // ⬅ расширили ширину
+    margin: 0 auto;
+  }
+
+  .carousel-window {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 320px; // ⬅ увеличили высоту
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-size: 32px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    &.left {
+      left: 12px;
+    }
+
+    &.right {
+      right: 12px;
+    }
+  }
+
+  .caption {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 10px;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .error {
+    color: red;
+    margin-top: 16px;
+  }
+}

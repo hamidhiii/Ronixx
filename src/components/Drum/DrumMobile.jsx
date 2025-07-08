@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Skeleton from "react-loading-skeleton";
@@ -12,50 +12,58 @@ const BASE_URL = "https://ronixtools.duckdns.org";
 const DrumMobile = () => {
   const { t } = useTranslation();
   const { data: categories = [], isLoading, isError, error } = useGetCategoriesQuery();
-
   const [activeIndex, setActiveIndex] = useState(0);
-  const total = categories.length || 6;
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : total - 1));
+  const items = isLoading ? Array.from({ length: 6 }) : categories;
+
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
   };
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % total);
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
   };
+
+  // ⏱ Автопрокрутка
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   if (isError) return <div className="error">Ошибка: {error?.data?.message || "Неизвестная ошибка"}</div>;
-  if (total === 0) return <div className="no-categories">Категории не найдены</div>;
+  if (!isLoading && items.length === 0) return <div className="error">Категории не найдены</div>;
 
   return (
     <div className="drum-mobile">
-      <div className="carousel-container">
-        <button className="carousel-btn left" onClick={handlePrev}>‹</button>
+      <div className="carousel">
+        <button className="nav-btn left" onClick={prevSlide}>‹</button>
 
-        <div className="carousel-track">
-          {(isLoading ? Array.from({ length: 6 }) : categories).map((category, index) => {
-            const isActive = index === activeIndex;
-            return isLoading ? (
-              <div key={index} className={`carousel-item ${isActive ? "active" : ""}`}>
-                <Skeleton height={150} width={250} style={{ borderRadius: 10 }} />
+        <div className="carousel-window">
+          <div
+            className="carousel-track"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {items.map((item, index) => (
+              <div className="carousel-slide" key={item?.id || index}>
+                {isLoading ? (
+                  <Skeleton width={250} height={150} />
+                ) : (
+                  <Link to={item.path}>
+                    <img src={`${BASE_URL}${item.image}`} alt={t(item.name)} />
+                  </Link>
+                )}
               </div>
-            ) : (
-              <Link
-                key={category.id}
-                to={category.path}
-                className={`carousel-item ${isActive ? "active" : ""}`}
-              >
-                <img src={`${BASE_URL}${category.image}`} alt={t(category.name)} />
-              </Link>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        <button className="carousel-btn right" onClick={handleNext}>›</button>
+        <button className="nav-btn right" onClick={nextSlide}>›</button>
       </div>
 
-      <div className="carousel-caption">
-        {isLoading ? <Skeleton width={120} /> : t(categories[activeIndex].name)}
+      <div className="caption">
+        {isLoading ? <Skeleton width={120} /> : t(categories[activeIndex]?.name)}
       </div>
     </div>
   );

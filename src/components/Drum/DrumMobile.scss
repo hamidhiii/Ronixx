@@ -1,97 +1,76 @@
 .drum-mobile {
-  width: 100%;
-  max-width: 100vw;
-  background-color: red;
+  background: #fff;
   padding: 16px;
-  box-sizing: border-box;
   text-align: center;
-  display: flex !important;
-  background-color: #fff;
+  position: relative;
 
-  .carousel-container {
+  .carousel {
     position: relative;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    max-width: 620px; // ⬅ расширили ширину
+    margin: 0 auto;
+  }
+
+  .carousel-window {
+    width: 100%;
     overflow: hidden;
+    border-radius: 12px;
   }
 
   .carousel-track {
-    display: flex !important;
-    flex-direction: row;
-    transition: transform 0.3s ease-in-out;
-    gap: 16px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 8px 0;
-    -webkit-overflow-scrolling: touch;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    display: flex;
+    transition: transform 0.5s ease-in-out;
   }
 
-  .carousel-item {
-    scroll-snap-align: center;
-    min-width: 250px;
-    max-width: 250px;
-    height: 150px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+  .carousel-slide {
+    min-width: 100%;
+    height: 320px; // ⬅ увеличили высоту
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    &.active {
-      opacity: 1;
+      border-radius: 12px;
     }
   }
 
-  .carousel-btn {
+  .nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 24px;
-    background: white;
+    z-index: 5;
+    font-size: 32px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
     border-radius: 8px;
-    color: black;
     cursor: pointer;
-    z-index: 10;
-    padding: 4px 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
     &.left {
-      left: 0;
+      left: 12px;
     }
 
     &.right {
-      right: 0;
+      right: 12px;
     }
   }
 
-  .carousel-caption {
-    margin-top: 12px;
+  .caption {
+    font-weight: 700;
     font-size: 16px;
-    font-weight: 500;
+    line-height: 10px;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 600;
     color: #000;
   }
 
-  .error,
-  .no-categories {
-    padding: 20px;
+  .error {
     color: red;
-    text-align: center;
+    margin-top: 16px;
   }
 }

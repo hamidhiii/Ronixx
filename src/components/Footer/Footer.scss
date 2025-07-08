@@ -1,61 +1,95 @@
 .footer {
-    border-top: 1px solid grey;
-    padding: 50px 0px;
-    margin-top: 100px;
-      position: relative;
-      z-index: 0; 
-     
-      
-  
-    .lg3 {
-      display: flex;
-      align-items: center;
-    }
-  
-    .lg {
-     display: flex;
+  border-top: 1px solid grey;
+  padding: 50px 0px;
+  margin-top: 100px;
+  position: relative;
+  z-index: 0;
 
-     ul{
-        display: block;
-       
 
-        li{
-            font-size: 20px;
-            
-            a{
 
-                color: rgb(169, 165, 165);
-                font-size: 15px;
-                line-height: 12px;
-                font-weight: 400px;
-                text-decoration: none;
-                
-            }
-        }
-     }
-      h6 {
-        color: white;
+  .lg3 {
+    display: flex;
+    align-items: center;
+  }
+
+  .lg {
+    display: flex;
+
+    ul {
+      display: block;
+
+
+      li {
         font-size: 20px;
-        line-height: 20px;
-        font-weight: 400;
+
+        a {
+
+          color: rgb(169, 165, 165);
+          font-size: 15px;
+          line-height: 12px;
+          font-weight: 400px;
+          text-decoration: none;
+
+        }
       }
-      p {
-        color: white;
-        font-size: 16px;
-        line-height: 15px;
-        font-weight: 400px;
-        margin-top: 10px;
+    }
+
+    h6 {
+      color: white;
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    p {
+      color: white;
+      font-size: 16px;
+      line-height: 15px;
+      font-weight: 400px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    width: 100%;
+
+    .lg3 {
+     margin-top: 40%;
+
+    
+    }
+
+    .lg {
+      display: flex !important;
+      margin-left: 200px;
+      margin-top: -200px;
+
+      ul {
+
+        li {
+          font-size: 20px;
+
+          a {
+
+            color: rgb(169, 165, 165);
+            font-size: 15px;
+            line-height: 12px;
+            font-weight: 400px;
+            text-decoration: none;
+
+          }
+
+          .footer-links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+
+
+          }
+        }
       }
     }
   }
-
-  @media(max-width: 768px) {
-    ul{
-      margin-left: -30px;
-    }
-
-    .lg3{
-      margin-left: 20px;
-    }
-  }
-
+}

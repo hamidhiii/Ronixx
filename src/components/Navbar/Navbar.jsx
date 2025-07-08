@@ -40,7 +40,8 @@ export default function Navbar({ onSearch }) {
                 <Menu />
               </Col>
 
-              <Col className="d-flex align-items-center justify-content-end">
+              <Col className="d-flex align-items-center justify-content-end" md={5} style={{ marginTop: "-50px" }}
+              >
                 <SearchIcon
                   className="search-toggle-icon"
                   style={{ cursor: "pointer", marginLeft: "15px" }}
@@ -76,11 +77,11 @@ export default function Navbar({ onSearch }) {
               <Search onSearch={onSearch} />
             </Col>
 
-            <Col lg="auto" className="ThemeToggle">
+            <Col lg={1} className="ThemeToggle">
               <ThemeToggle />
             </Col>
 
-            <Col lg="auto" className="LanguageSwitcher">
+            <Col lg={1} className="LanguageSwitcher">
               <LanguageSwitcher />
             </Col>
 

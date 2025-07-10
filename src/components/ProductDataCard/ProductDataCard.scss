@@ -1,6 +1,7 @@
 .product-cards {
   position: relative;
-  width: 264px !important;
+  width: 300px !important;
+ margin-top: 50px;
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
@@ -70,10 +71,9 @@
     }
   }
 }
-
 .product-list {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: flex-start;
 }

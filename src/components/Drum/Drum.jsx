@@ -65,13 +65,16 @@ const Drum = () => {
   const handleDown = () => setActiveIndex(prev => mod(prev + 1, total));
 
   const getTranslatedName = (categoryName) => {
-    return (
-      categoryTranslations?.[categoryName]?.[i18n.language]?.name ||
-      categoryTranslations?.[categoryName]?.en?.name ||
-      categoryName ||
-      "No Name"
-    );
+    const translations = categoryTranslations?.[categoryName];
+  
+    if (!translations) return categoryName || "No Name";
+  
+    if (i18n.language === "ru" && translations.ru?.name) return translations.ru.name;
+    if (i18n.language === "uz" && translations.uz?.name) return translations.uz.name;
+  
+    return categoryName || "No Name";
   };
+  
 
   if (isError) return <div>Ошибка загрузки: {error?.data?.message || "Неизвестная ошибка"}</div>;
   if (total === 0) return <div>Категории не найдены</div>;

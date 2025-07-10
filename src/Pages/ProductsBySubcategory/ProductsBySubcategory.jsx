@@ -7,7 +7,8 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 const ProductsBySubcategory = () => {
   const { path } = useParams();
-  const { data: products = [], isLoading, isError, error } = useGetProductsBySubcategoryQuery(path);
+  const { data, isLoading, isError, error } = useGetProductsBySubcategoryQuery(path);
+  const products = data?.results || [];
 
   if (isLoading) {
     return (

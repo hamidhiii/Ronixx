@@ -29,7 +29,7 @@ export default function Navbar({ onSearch }) {
 
   return (
     <nav className={`navbar ${isSearchOpen ? "search-open" : ""}`}>
-      <Container>
+      <Container >
         {windowWidth <= 768 ? (
           !isSearchOpen ? (
             <Row className="align-items-center navbar-content">
@@ -61,27 +61,27 @@ export default function Navbar({ onSearch }) {
           )
         ) : (
           <Row className="align-items-center">
-            <Col lg="auto">
+            <Col className="logotip"  md={1} >
               <Link to="/">
                 <img src={logo} alt="Logo" className="logo" />
               </Link>
             </Col>
 
-            <Col lg={3} className="menulist">
+            <Col lg={3} md={1} className="menulist">
               <ul>
                 <Menu />
               </ul>
             </Col>
 
-            <Col lg={4} className="search">
+            <Col lg={4} md={3} className="search">
               <Search onSearch={onSearch} />
             </Col>
 
-            <Col lg={1} className="ThemeToggle">
+            <Col lg={1} md={1} xs={1} className="ThemeToggle">
               <ThemeToggle />
             </Col>
 
-            <Col lg={1} className="LanguageSwitcher">
+            <Col lg={1} md={1} xs={1} className="LanguageSwitcher">
               <LanguageSwitcher />
             </Col>
 

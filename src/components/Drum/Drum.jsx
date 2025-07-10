@@ -67,7 +67,7 @@ const Drum = () => {
   const getTranslatedName = (categoryName) => {
     return (
       categoryTranslations?.[categoryName]?.[i18n.language]?.name ||
-      categoryTranslations?.[categoryName]?.en?.name ||
+      categoryTranslations?.[categoryName]?.ru?.name ||
       categoryName ||
       "No Name"
     );

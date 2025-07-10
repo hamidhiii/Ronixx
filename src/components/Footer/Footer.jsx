@@ -18,7 +18,7 @@ export default function Footer() {
 
          <Col className='lg' lg={10}>
   <Row className="footer-links">
-    <Col lg={4} md={4} sm={12}>
+    <Col lg={4} md={2} sm={6}>
       <ul>
         <li>{t('all_products')}</li>
         <li><Link to={''}>{t('electro_tools')}</Link></li>
@@ -26,14 +26,14 @@ export default function Footer() {
         <li><Link to={''}>{t('flashlights_wholesale')}</Link></li>
       </ul>
     </Col>
-    <Col lg={4} md={4} sm={12}>
+    <Col lg={4} md={2} sm={6}>
       <ul>
         <li><Link to={''}>{t('protection_tools')}</Link></li>
         <li><Link to={''}>{t('accessories_for_tools')}</Link></li>
         <li><Link to={''}>{t('toolboxes_bags')}</Link></li>
       </ul>
     </Col>
-    <Col lg={4} md={4} sm={12}>
+    <Col lg={4} md={2} sm={6}>
       <ul>
         <li><Link to={''}>{t('lifting_equipment')}</Link></li>
         <li><Link to={''}>{t('jacks')}</Link></li>

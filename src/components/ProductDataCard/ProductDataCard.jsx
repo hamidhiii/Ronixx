@@ -12,7 +12,7 @@ export const ProductDataCard = ({ product }) => {
 
   return (
     <Container>
-      <Row className="product-list">
+      <Row className="product-list" >
         <Col xs={12} sm={6} md={4} lg={3} xl={2} className="mb-4 d-flex justify-content-center">
           <div className="product-cards" id={`product-${product.id}`} onClick={() => handleClick(product.translations.en.name)}>
             <img src={`https://ronixtools.duckdns.org${product.image}`} alt={product.translations?.en?.name} className="product-image" />

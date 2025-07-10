@@ -4,6 +4,7 @@ import { useGetProductsBySubcategoryQuery } from "../../services/api/productsApi
 import { ProductDataCard } from "../../components/ProductDataCard/ProductDataCard";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
+import './ProductsBySubcategory.scss'; // Assuming you have a CSS file for styles
 
 const ProductsBySubcategory = () => {
   const { path } = useParams();

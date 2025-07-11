@@ -74,3 +74,58 @@
     margin-top: 16px;
   }
 }
+
+@media(max-width:576px) {
+
+  .drum-mobile {
+
+      .caption {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 10px;
+    margin-top: -100px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+    .carousel {
+      .nav-btn {
+        font-size: 23px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: -50px;
+        
+        &.left {
+          left: 0px;
+        }
+        &.right {
+          right: 0px;
+        }
+      }
+
+
+    }
+
+
+    .carousel-slide {
+      margin-top: -100px;
+    }
+  }
+
+  img.drum {
+    width: 200px !important;
+
+  }
+
+
+}
+
+
+
+img.drum:nth-child(1) {
+  width: 200px !important;
+  height: 100px !important;
+
+}

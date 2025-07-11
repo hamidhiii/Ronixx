@@ -16,8 +16,31 @@
   "protection_tools": "Shaxsiy himoya vositalari (SHV)",
   "accessories_for_tools": "Asboblar uchun aksessuarlar",
   "toolboxes_bags": "Asboblar uchun qutilar va sumkalar",
- "features": "Xususiyatlar",
-"description": "Tavsif",
-"specification": "Texnik xususiyatlar"
-
+  "featuress": "Xususiyatlar",
+  "description": "Tavsif",
+  "specification": "Texnik xususiyatlar",
+  "coretitle": "ASOSIY QIZMATLAR: RONIX NIMA XUSUSIYATLAR",
+  "coreparagraph": "Eng boshidanoq RONIX faoliyatining mohiyati bizning beshta asosiy qadriyatlarimizga asoslanadi, ularning har biri muhim va biznesimiz mohiyatini belgilaydi. Bizning asosiy qadriyatlarimiz bo'lgan xilma-xillik, sifat, maqbul narxlar, tashkiliy xatti-harakatlar va mijozlarga xizmat ko'rsatish bizni asboblar bozorida doimiy o'sish yo'liga olib boradi.",
+  "features": {
+    "quality": {
+      "title": "Sifat",
+      "text": "RONIX yuqori sifatli asboblar ishlab chiqaruvchisi bo'lib, ularning ishlab chiqarilishi qat'iy sifat nazorati va xavfsizlik protokollariga bo'ysunadi."
+    },
+    "variety": {
+     "title": "Turli xillik",
+     "text": "RONIX 9 ta alohida toifada 2500 dan ortiq turdagi asboblar va har xil turdagi 36 000 ta ehtiyot qismlarni taklif etadi"
+    },
+    "price": {
+      "title": "O'rtacha narxlar",
+      "text": "RONIX har xil ehtiyojlarga ega bo'lgan mijozlar uchun moliyaviy inklyuzivlikni ta'minlash bilan birga ajoyib sifatni taklif qilishga intiladi."
+    },
+    "support": {
+      "title": "Mijozlarga xizmat ko'rsatish",
+      "text": "RONIX barcha mijozlarga o'z ehtiyojlarini qondirish va asboblar bozoridagi muvaffaqiyatlarini oshirish uchun 24/7 yordam olishlarini kafolatlaydi."
+    },
+    "professional": {
+      "title": "Professional xulq-atvor",
+      "text": "RONIx ham HR xizmatini baholashga, ham RONICSni tanlagan mijozlarga chuqur sodiqdir."
+    }
+  }
 }

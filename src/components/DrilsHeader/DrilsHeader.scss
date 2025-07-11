@@ -54,7 +54,8 @@ img.headerfotos {
     }
 
     .text-center {
-        top: 60%;
+        height: 30%;
+        top: 50%;
         left: 8%;
         width: 85% !important;
 
@@ -87,9 +88,9 @@ img.headerfotos {
 @media (max-width: 768px) {
     .text-center {
         top: 64%;
-        width: 500px !important;
+        width: 80% !important;
         padding: 20px;
-        left: 6%;
+        left: 10%;
 
 
         h1 {
@@ -119,7 +120,7 @@ img.headerfotos {
 
 @media(max-width: 576px) {
     .text-center {
-        top: 40%;
+        top: 35%;
         width: 85% !important;
         height: 200px !important;
         padding: 20px;
@@ -145,7 +146,7 @@ img.headerfotos {
 
     }
       img.headerfotos {
-        height: 200px;
+        height: 150px;
     }
 }
 

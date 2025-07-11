@@ -12,28 +12,28 @@ export default function Footer() {
     <div className='footer'>
         <Container>
             <Row>
-                <Col className='lg3' lg={2}>
+                <Col className='lg3' lg={2} md='auto' sm="auto" xs="auto">
                     <img src={ronix} alt="Ronix" />
                 </Col>
 
-         <Col className='lg' lg={10}>
-  <Row className="footer-links">
-    <Col lg={4} md={2} sm={6}>
+         <Col className='lg'>
+  <Row sm="auto" className="footer-links">
+    <Col lg={4} md={6} sm={5} xs={6}>
       <ul>
-        <li>{t('all_products')}</li>
+        <li className='All'>{t('all_products')}</li>
         <li><Link to={''}>{t('electro_tools')}</Link></li>
         <li><Link to={''}>{t('hand_tools_wholesale')}</Link></li>
         <li><Link to={''}>{t('flashlights_wholesale')}</Link></li>
       </ul>
     </Col>
-    <Col lg={4} md={2} sm={6}>
+    <Col lg={4} md={6} sm={5} xs={6}>
       <ul>
         <li><Link to={''}>{t('protection_tools')}</Link></li>
         <li><Link to={''}>{t('accessories_for_tools')}</Link></li>
         <li><Link to={''}>{t('toolboxes_bags')}</Link></li>
       </ul>
     </Col>
-    <Col lg={4} md={2} sm={6}>
+    <Col lg={4}  md={6} sm={5} xs={6}>
       <ul>
         <li><Link to={''}>{t('lifting_equipment')}</Link></li>
         <li><Link to={''}>{t('jacks')}</Link></li>

@@ -99,6 +99,31 @@
     }
   }
 }
+@media (max-width: 431px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 30px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+    }
+  }
+}
+@media (max-width: 391px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 20px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  }
+}
 
 
 

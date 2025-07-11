@@ -30,7 +30,7 @@ export default function Navbar({ onSearch }) {
   return (
     <nav className={`navbar ${isSearchOpen ? "search-open" : ""}`}>
       <Container >
-        {windowWidth <= 768 ? (
+        {windowWidth <= 767 ? (
           !isSearchOpen ? (
             <Row className="align-items-center navbar-content">
               <Col className="d-flex align-items-center">

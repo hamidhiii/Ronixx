@@ -4,7 +4,6 @@
     border: transparent !important;
     border-radius: 4px;
     width: 100% !important;
-    z-index: -99999999999 !important;
     
   
     html.dark & {
@@ -116,7 +115,11 @@
     
   
   }
-
+@media(max-width:576px){
+  .product-card{
+    width: 200px;
+  }
+}
  
   
   

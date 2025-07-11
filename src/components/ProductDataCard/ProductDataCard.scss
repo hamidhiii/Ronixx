@@ -114,15 +114,14 @@
 }
 
 @media(max-width: 576px) {
-  .product-card {
-    width: 50%;
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 20px;
+  // .product-card {
+  //   max-width: 200px;
+  //   height: auto;
+  //   margin-bottom: 20px;
 
 
 
-  }
+  // }
 
 
 }
@@ -133,8 +132,6 @@
 
 
     .product-card {
-      width: 170px;
-      max-width: 190px;
       height: 250px;
 
       margin-bottom: 10px;

@@ -42,10 +42,10 @@ export default function ProductDetail() {
   return (
     <Container>
       <Row className="product-detail-page">
-        <Col lg={6} className="product-image">
+        <Col lg={6} md={12} xs={12} className="product-image">
           <CarouselProduct images={productImages} />
         </Col>
-        <Col lg={6} className="product-details">
+        <Col lg={6} md={12} xs={12} className="product-details">
           <ProductCard product={product} />
         </Col>
         <Col lg={12}>

@@ -65,6 +65,7 @@ const Drum = () => {
   const handleDown = () => setActiveIndex(prev => mod(prev + 1, total));
 
   const getTranslatedName = (categoryName) => {
+
     const translations = categoryTranslations?.[categoryName];
     const lang = i18n.language;
   

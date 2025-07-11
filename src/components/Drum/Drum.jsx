@@ -67,14 +67,14 @@ const Drum = () => {
   const getTranslatedName = (categoryName) => {
 
     const translations = categoryTranslations?.[categoryName];
+    const lang = i18n.language;
   
-    if (!translations) return categoryName || "No Name";
+    if (!translations) return "";
   
-    if (i18n.language === "ru" && translations.ru?.name) return translations.ru.name;
-    if (i18n.language === "uz" && translations.uz?.name) return translations.uz.name;
-  
-    return categoryName || "No Name";
+    const translatedName = translations[lang]?.name || translations["ru"]?.name;
+    return translatedName || "";
   };
+  
   
 
   if (isError) return <div>Ошибка загрузки: {error?.data?.message || "Неизвестная ошибка"}</div>;

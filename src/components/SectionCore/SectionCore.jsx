@@ -2,7 +2,8 @@ import React, { use } from "react";
 import "./SectionCore.scss";
 import { Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import FeatureList from "../FeatureList/FeatureList";
+import FeatureList from './../FeatureList/FeatureList';
+
 
 
 

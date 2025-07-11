@@ -192,7 +192,6 @@ export const features = [
   },
 ];
 
-
 export const HeaderElectro = [
   {
     id: 0,

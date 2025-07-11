@@ -11,54 +11,76 @@ import "./DrumMobile.scss";
 const BASE_URL = "https://ronixtools.duckdns.org";
 
 const DrumMobile = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data: categories = [], isLoading, isError, error } = useGetCategoriesQuery();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
-
+  const [categoryTranslations, setCategoryTranslations] = useState({});
 
   const items = isLoading ? Array.from({ length: 6 }) : categories;
 
-const nextSlide = () => {
-  if (activeIndex < items.length - 1) {
-    setActiveIndex((prev) => prev + 1);
-  } else {
-    setActiveIndex((prev) => prev + 1);
-    setTimeout(() => {
-      setTransitionEnabled(false);
-      setActiveIndex(0);
-    }, 500); // совпадает с transition 0.5s
+  const nextSlide = () => {
+    if (activeIndex < items.length) {
+      setActiveIndex((prev) => prev + 1);
+    } else {
+      setActiveIndex((prev) => prev + 1);
+      setTimeout(() => {
+        setTransitionEnabled(false);
+        setActiveIndex(0);
+      }, 500);
+      setTimeout(() => {
+        setTransitionEnabled(true);
+      }, 600);
+    }
+  };
 
-    setTimeout(() => {
-      setTransitionEnabled(true);
-    }, 600);
-  }
-};
+  const prevSlide = () => {
+    if (activeIndex > 0) {
+      setActiveIndex((prev) => prev - 1);
+    } else {
+      setActiveIndex((prev) => prev - 1);
+      setTimeout(() => {
+        setTransitionEnabled(false);
+        setActiveIndex(items.length);
+      }, 500);
+      setTimeout(() => {
+        setTransitionEnabled(true);
+      }, 600);
+    }
+  };
 
-const prevSlide = () => {
-  if (activeIndex > 0) {
-    setActiveIndex((prev) => prev - 1);
-  } else {
-    setActiveIndex((prev) => prev - 1);
-    setTimeout(() => {
-      setTransitionEnabled(false);
-      setActiveIndex(items.length - 1);
-    }, 500);
-
-    setTimeout(() => {
-      setTransitionEnabled(true);
-    }, 600);
-  }
-};
-
-
-  // ⏱ Автопрокрутка
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
+    const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, [items.length]);
+
+  useEffect(() => {
+    const fetchTranslations = async () => {
+      const translations = {};
+      for (const item of categories) {
+        try {
+          const res = await axios.get(`${BASE_URL}/categories/${encodeURIComponent(item.name)}/`);
+          translations[item.name] = res.data.translations;
+        } catch (err) {
+          console.error("Ошибка перевода:", item.name, err);
+        }
+      }
+      setCategoryTranslations(translations);
+    };
+
+    if (categories.length > 0) {
+      fetchTranslations();
+    }
+  }, [categories]);
+
+  const getTranslatedName = (categoryName) => {
+    const translations = categoryTranslations?.[categoryName];
+    const lang = i18n.language;
+
+    if (!translations) return categoryName;
+    return translations[lang]?.name || translations["ru"]?.name || categoryName;
+  };
 
   if (isError) return <div className="error">Ошибка: {error?.data?.message || "Неизвестная ошибка"}</div>;
   if (!isLoading && items.length === 0) return <div className="error">Категории не найдены</div>;
@@ -71,19 +93,52 @@ const prevSlide = () => {
         <div className="carousel-window">
           <div
             className="carousel-track"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            style={{
+              transform: `translateX(-${(activeIndex + 1) * 100}%)`,
+              transition: transitionEnabled ? "transform 0.5s ease" : "none",
+            }}
           >
+            {/* Клон последнего элемента (в начало) */}
+            {!isLoading && (
+              <div className="carousel-slide" key="last-clone">
+                <Link to={items[items.length - 1].path}>
+                  <img
+                    className="drum"
+                    src={`${BASE_URL}${items[items.length - 1].image}`}
+                    alt={getTranslatedName(items[items.length - 1].name)}
+                  />
+                </Link>
+              </div>
+            )}
+
             {items.map((item, index) => (
               <div className="carousel-slide" key={item?.id || index}>
                 {isLoading ? (
                   <Skeleton width={250} height={150} />
                 ) : (
                   <Link to={item.path}>
-                    <img src={`${BASE_URL}${item.image}`} alt={t(item.name)} />
+                    <img
+                      className="drum"
+                      src={`${BASE_URL}${item.image}`}
+                      alt={getTranslatedName(item.name)}
+                    />
                   </Link>
                 )}
               </div>
             ))}
+
+            {/* Клон первого элемента (в конец) */}
+            {!isLoading && (
+              <div className="carousel-slide" key="first-clone">
+                <Link to={items[0].path}>
+                  <img
+                    className="drum"
+                    src={`${BASE_URL}${items[0].image}`}
+                    alt={getTranslatedName(items[0].name)}
+                  />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 
@@ -91,11 +146,7 @@ const prevSlide = () => {
       </div>
 
       <div className="caption">
-        {isLoading ? (
-          <Skeleton width={120} />
-        ) : (
-          getTranslatedName(categories[activeIndex]?.name)
-        )}
+        {isLoading ? <Skeleton width={120} /> : getTranslatedName(items[activeIndex % items.length]?.name)}
       </div>
     </div>
   );

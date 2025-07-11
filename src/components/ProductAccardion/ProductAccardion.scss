@@ -49,12 +49,15 @@
 
 
    @media(max-width:576px){
+    .product-desc-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
+      width: 250px !important;  
+    }
     .product-desc-accordion{
       width: 250px !important;
 
 
       .accordion-body {
-         width: 100px !important;
+         width: 100% !important;
         font-size: 10px !important;
         line-height: 12px;
         font-weight: 400;

@@ -5,7 +5,7 @@ import Accordion from "react-bootstrap/Accordion";
 import ProductSpec from '../ProductSpec/ProductSpec';
 import { useTranslation } from 'react-i18next';
 
-export default function ProductAccardion({ features, description, specification, activeAccordion, toggleAccordion }) {
+export default function ProductAccardion({ featuress, description, specification, activeAccordion, toggleAccordion }) {
   const { t } = useTranslation();
 
   return (
@@ -18,7 +18,7 @@ export default function ProductAccardion({ features, description, specification,
               {activeAccordion === "0" ? <FaMinus /> : <FaPlus />}
             </span>
           </Accordion.Header>
-          <Accordion.Body>{features}</Accordion.Body>
+          <Accordion.Body>{featuress}</Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="1">

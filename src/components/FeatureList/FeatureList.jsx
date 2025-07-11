@@ -1,13 +1,12 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import styles from "./FeatureList.module.scss";
 import { features } from "../../Constants/Index";
+import { useTranslation } from "react-i18next";
 
 const FeatureList = () => {
-  const { t } = useTranslation();
-
+    const { t } = useTranslation(); 
   return (
-    <div className={styles.features}>
+  <div className={styles.features}>
       {features.map((feature, index) => (
         <div
           key={index}

@@ -14,6 +14,8 @@ const DrumMobile = () => {
   const { i18n } = useTranslation();
   const { data: categories = [], isLoading, isError, error } = useGetCategoriesQuery();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+
 
   const items = isLoading ? Array.from({ length: 6 }) : categories;
 
@@ -33,9 +35,22 @@ const nextSlide = () => {
   }
 };
 
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
-  };
+const prevSlide = () => {
+  if (activeIndex > 0) {
+    setActiveIndex((prev) => prev - 1);
+  } else {
+    setActiveIndex((prev) => prev - 1);
+    setTimeout(() => {
+      setTransitionEnabled(false);
+      setActiveIndex(items.length - 1);
+    }, 500);
+
+    setTimeout(() => {
+      setTransitionEnabled(true);
+    }, 600);
+  }
+};
+
 
   // ⏱ Автопрокрутка
   useEffect(() => {

@@ -27,10 +27,12 @@ export default function Navbar({ onSearch }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const isMobile = windowWidth <= 768;
+
   return (
     <nav className={`navbar ${isSearchOpen ? "search-open" : ""}`}>
-      <Container >
-        {windowWidth <= 767 ? (
+      <Container>
+        {isMobile ? (
           !isSearchOpen ? (
             <Row className="align-items-center navbar-content">
               <Col className="d-flex align-items-center">
@@ -40,28 +42,23 @@ export default function Navbar({ onSearch }) {
                 <Menu />
               </Col>
 
-              <Col className="d-flex align-items-center justify-content-end" md={5} style={{ marginTop: "-50px" }}
-              >
-                <SearchIcon
-                  className="search-toggle-icon"
-                  style={{ cursor: "pointer", marginLeft: "15px" }}
-                  onClick={() => setIsSearchOpen(true)}
-                />
-                <ThemeToggle  />
-                <LanguageSwitcher  />
-                {/* <FaUser className="profile-icon" onClick={() => navigate("/profile")} /> */}
-              </Col>
+              <div className="d-flex buttons" >
+                {/* Search is completely removed in mobile */}
+                <ThemeToggle />
+                <LanguageSwitcher />
+              </div>
             </Row>
           ) : (
             <Row className="search-fullscreen">
               <Col>
-                <Search setIsSearchOpen={setIsSearchOpen} mobile={true} />
+                {/* Если хочешь оставить поиск в полноэкранном режиме по кнопке — раскомментируй ниже */}
+                {/* <Search setIsSearchOpen={setIsSearchOpen} mobile={true} /> */}
               </Col>
             </Row>
           )
         ) : (
           <Row className="align-items-center">
-            <Col className="logotip"  md={1} >
+            <Col className="logotip" md={1}>
               <Link to="/">
                 <img src={logo} alt="Logo" className="logo" />
               </Link>
@@ -84,23 +81,6 @@ export default function Navbar({ onSearch }) {
             <Col lg={1} md={1} xs={1} className="LanguageSwitcher">
               <LanguageSwitcher />
             </Col>
-
-            {/* <Col lg="auto" className="basket-icon-wrapper" style={{ position: "relative" }}>
-              <Link to="/basket">
-                <button>
-                  <FaShoppingCart />
-                  {itemsCount > 0 && (
-                    <span className="cart-badge">{itemsCount}</span>
-                  )}
-                </button>
-              </Link>
-            </Col>
-
-            <Col lg="auto" className="profile-col" style={{ position: "relative" }}>
-              <button onClick={() => navigate("/profile")} className="profile-button">
-                <FaUser className="profile-icon" />
-              </button>
-            </Col> */}
           </Row>
         )}
       </Container>

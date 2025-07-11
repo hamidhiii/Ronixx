@@ -54,15 +54,18 @@
 
 
    @media(max-width:576px){
-    .product-desc-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed) {
-      width: 250px !important;  
+
+    .main-info{
+      width: 600px !important;
+      padding: 0px !important;
+      margin-top: 0px !important;
     }
     .product-desc-accordion{
-      width: 250px !important;
+      width: 400px !important;
 
 
       .accordion-body {
-         width: 100% !important;
+         width: 400px !important;
         font-size: 10px !important;
         line-height: 12px;
         font-weight: 400;

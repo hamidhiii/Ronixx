@@ -4,9 +4,12 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import ProductAccardion from "../ProductAccardion/ProductAccardion";
+import { useTranslation } from "react-i18next";
 
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
 
   const {
     model,
@@ -15,7 +18,6 @@ export default function ProductCard({ product }) {
     translations,
     price,
     specifications,
-    features
   } = product;
 
   const [activeAccordion, setActiveAccordion] = useState("0");
@@ -24,42 +26,41 @@ export default function ProductCard({ product }) {
     setActiveAccordion(activeAccordion === key ? null : key);
   };
 
-  // const handleBulkOrder = () => {
-  //   dispatch(
-  //     addToCart({
-  //       id: product.id,
-  //       name: translations?.en?.name,
-  //       model,
-  //       barcode: barcode_color,
-  //       price,
-  //     })
-  //   );
-  // };
+  const translation =
+    translations?.[currentLang] || translations?.ru || translations?.en;
+
+  const specs =
+    specifications?.translations?.[currentLang] ||
+    specifications?.translations?.ru ||
+    specifications?.translations?.en;
+
+  const name = translation?.name || "Нет названия";
+  const madeIn = translation?.made_in || "Не указано";
+  const featureText = translation?.features || "Нет описания";
+  const descriptionText = translation?.description || "Нет описания";
+
+  const type = specs?.type || "—";
+  const size = specs?.size || "—";
 
   return (
     <div className="product-card">
       <div className="top-label">
-        <span className="made-in">Made in {translations?.en?.made_in}</span>
+        <span className="made-in">Сделано в: {madeIn}</span>
       </div>
 
       <div className="main-info">
         <h4>
-          Model: <span>{model}</span> <FaStar className="star-icon" />
+          Модель: <span>{model}</span> <FaStar className="star-icon" />
         </h4>
-        <p className="product-name">{translations?.en?.description}</p>
+        <p className="product-name">{name}</p>
 
         <div className="barcodes">
-          <p>Barcode For Color: {barcode_color}</p>
-          <p>Barcode For Carton: {barcode_carton}</p>
+          <p>Штрихкод (цвет): {barcode_color}</p>
+          <p>Штрихкод (коробка): {barcode_carton}</p>
         </div>
-
-        {/* <div className="action-buttons">
-          <button className="bulk-order" onClick={handleBulkOrder}>Bulk Order</button>
-        </div> */}
-
         <ProductAccardion
-          features={translations?.en?.features} 
-          description={translations?.en?.description}
+          features={featureText}
+          description={descriptionText}
           specification={specifications}
           activeAccordion={activeAccordion}
           toggleAccordion={toggleAccordion}

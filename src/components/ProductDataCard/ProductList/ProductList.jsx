@@ -6,9 +6,18 @@ import { productDataCard } from "../../Constants/Index";
 const ProductList = () => {
   return (
     <div className="product-list">
-      {productDataCard.map((product) => (
-        <ProductDataCard key={product.id} product={product} />
-      ))}
+      {products.map(product => {
+  const lang = i18n.language;
+  const spec = product?.specifications?.translations?.[lang] || product?.specifications?.translations?.ru || {};
+
+  return (
+    <ProductDataCard
+      product={product}
+      type={spec.type}
+      size={spec.size}
+    />
+  );
+})}
     </div>
   );
 };

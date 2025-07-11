@@ -1,6 +1,7 @@
 .navbar {
   padding: 20px 0;
   background-color: black;
+  z-index: 999999999999;
 
   &.search-open {
     .navbar-content {

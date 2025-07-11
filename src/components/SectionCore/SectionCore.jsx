@@ -17,7 +17,9 @@ export default function SectionCore() {
           <h2>{t("coretitle")}</h2>
           <p>
             {t("coreparagraph")}
+            
           </p>
+          <p> hello hello</p>
         </Row>
 
       

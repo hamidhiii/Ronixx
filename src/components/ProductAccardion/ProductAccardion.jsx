@@ -13,7 +13,7 @@ export default function ProductAccardion({ featuress, description, specification
       <Accordion activeKey={activeAccordion} className='product-desc-accordion'>
         <Accordion.Item eventKey="0">
           <Accordion.Header onClick={() => toggleAccordion("0")}>
-          {t("features")}{" "}
+          {t("featuress")}{" "}
             <span style={{ marginLeft: "8px" }}>
               {activeAccordion === "0" ? <FaMinus /> : <FaPlus />}
             </span>

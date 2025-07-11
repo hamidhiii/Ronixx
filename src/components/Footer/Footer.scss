@@ -56,21 +56,135 @@
     width: 100%;
 
     .lg3 {
-     margin-bottom: 30px;
-   margin-left: 50px;
-     
+      height: 0px;
+      margin-bottom: 30px;
+     margin-left: 0px !important;
+     margin-right: 20px;
+      width: 100px;
 
     }
 
     .lg {
       display: flex !important;
-    
-     
+      height: 0px;
+      width: 100px;
 
       ul {
+      
+        width: 100px !important;
+
+
+        li {
+          width: 120px;
+      
+
+          a {
+
+            color: rgb(169, 165, 165);
+            font-size: 10px !important;
+            line-height: 10px;
+            font-weight: 400px;
+            text-decoration: none;
+
+          }
+
+          .footer-links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            display: flex !important;
+
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:576px) {
+  .footer {
+    width: 100%;
+   
+
+    .lg3,img {
+      margin-top: -20px;
+      margin-left: 30px;
+      width: 60px !important;
+
+    }
+
+
+    .lg {
+      display: flex !important;
+
+      width: 100px;
+       display: flex !important;
+
+
+
+
+
+      ul {
+        width: 50px;
+        height: 100px;
+        margin-left: -100px;
+      
+       
+        .All {
+          width: 70px;
+          font-size: 10px;
+        }
+
+
+        li {
+          font-size: 6px;
+
+
+          a {
+
+            color: rgb(169, 165, 165);
+            font-size: 6px !important;
+            line-height: 8px;
+            font-weight: 400px;
+            text-decoration: none;
+
+          }
+
+
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 992px) {
+  .footer {
+
+    width: 100%;
+
+    .lg3 {
+      margin-bottom: 30px;
+      margin-left: 75px;
+      width: 100px !important;
+
+
+    }
+
+    .lg {
+      display: flex !important;
+      width: 200px !important;
+
+
+
+      ul {
+        width: 200px !important;
+
+
 
         li {
           font-size: 20px;
+
 
           a {
 
@@ -94,3 +208,9 @@
     }
   }
 }
+
+
+// 1199px ----- 992px 
+// 991px ----- 768px
+// 767px ----- 576px  
+// 575px ----- 320px

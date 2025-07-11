@@ -166,28 +166,28 @@ export const categories = [
 
 export const features = [
   {
-    title: "Качество",
-    text: "РОНИКС – производитель высококачественных инструментов, изготовление которых подвергается тщательному контролю качества и протоколам по гарантиям безопасности.",
+    title: "features.quality.title",
+    text: "features.quality.text",
     image: features1,
   },
   {
-    title: "Разнообразие",
-    text: "RРОНИКС предлагает свыше 2500 типов инструментов и 36000 запасных частей разнообразного вида в 9 отдельных категорий.",
+    title: "features.variety.title",
+    text: "features.variety.text",
     image: features2,
   },
   {
-    title: "Разумные цены",
-    text: "РОНИКС стремится предлагать исключительное качество, обеспечивая при этом финансовую доступность клиентам с разными потребностями.",
+    title: "features.price.title",
+    text: "features.price.text",
     image: features3,
   },
   {
-    title: "Обслуживание клиентов",
-    text: "РОНИКС гарантирует всем клиентам получение 24/7 поддержкой для удовлетворения потребностей и повышения их успехов на рынке инструментов.",
+    title: "features.support.title",
+    text: "features.support.text",
     image: features4,
   },
   {
-    title: "Профессиональное поведение",
-    text: "РОНИКС имеет глубокую приверженность и к оценке кадровой службы, и к клиентам, которые выбрали РОНИКС.",
+    title: "features.professional.title",
+    text: "features.professional.text",
     image: features5,
   },
 ];

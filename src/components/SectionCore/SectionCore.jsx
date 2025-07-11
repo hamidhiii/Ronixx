@@ -1,19 +1,22 @@
-import React from "react";
+import React, { use } from "react";
 import "./SectionCore.scss";
 import { Container, Row } from "react-bootstrap";
-import FeatureList from "../FeatureList/FeatureList";
+import { useTranslation } from "react-i18next";
+import FeatureList from './../FeatureList/FeatureList';
+
 
 
 
 
 export default function SectionCore() {
+  const {t} = useTranslation(); 
   return (
     <div className="sectionCore">
       <Container>
         <Row>
-          <h2>ОСНОВНЫЕ ЦЕННОСТИ: ЧЕМ ХАРАКТЕРИЗУЕТСЯ РОНИКС</h2>
+          <h2>{t("coretitle")}</h2>
           <p>
-          С самого начала, суть деятельности компании «РОНИКС» основывается на наших пяти основных ценностях, каждая из которых важна и определяет характер нашего бизнеса. Реализация нашей основных ценностей “разнообразие, качество, разумные цены, организационное поведение и обслуживание клиентов” ведет нас по пути к непрерывному росту на рынке инструментов.
+            {t("coreparagraph")}
           </p>
         </Row>
 

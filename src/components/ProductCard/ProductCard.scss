@@ -4,7 +4,7 @@
     border: transparent !important;
     border-radius: 4px;
     width: 100% !important;
-    z-index: -1111111;
+    z-index: -99999999999 !important;
     
   
     html.dark & {
@@ -116,6 +116,8 @@
     
   
   }
+
+ 
   
   
   

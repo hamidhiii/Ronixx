@@ -57,7 +57,7 @@ export default function SubCategoryPage({ categories }) {
     id: categoryData.id,
     title: categoryData.name,
     desc: categoryData.description,
-    mainImage: categoryData.image || category.main_image,
+    mainImage: category.main_image,
     translations: categoryData.translations,
   }];
 

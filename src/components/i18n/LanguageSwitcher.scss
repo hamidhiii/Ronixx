@@ -127,3 +127,22 @@
     }
   }
 }
+@media (max-width: 431px) {
+ 
+  .language-switcher {
+    margin-left: 10px;
+    margin-top: 17px;
+    .language-selector {
+      position: absolute;
+      margin-top: -20px;
+      padding: 5px 10px;
+    }
+  }
+
+  .language-dropdown {
+    button {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+}

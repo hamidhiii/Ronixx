@@ -18,8 +18,9 @@
     "toolboxes_bags": "Ящики и сумки для инструмента",
     "features": "Характеристики",
 "description": "Описание",
-"specification": "Спецификация"
-
+"specification": "Спецификация",
+"price": "Цена :",
+"made_in": "Произведено в :"
 
   
 }

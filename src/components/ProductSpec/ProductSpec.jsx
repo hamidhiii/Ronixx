@@ -1,8 +1,15 @@
 import React from 'react';
 import './ProductSpec.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductSpec({ specification }) {
-  const spec = specification?.translations?.en;
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
+  const spec =
+    specification?.translations?.[lang] ||
+    specification?.translations?.ru ||
+    specification?.translations?.en;
 
   if (!spec) {
     return <div>Нет данных о характеристиках</div>;

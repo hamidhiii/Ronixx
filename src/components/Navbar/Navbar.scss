@@ -2,7 +2,7 @@
   padding: 20px 0;
   background-color: black;
   z-index: 999999999999;
-
+  position: relative; 
   &.search-open {
     .navbar-content {
       display: none;
@@ -60,7 +60,13 @@
 
 
   .search-fullscreen {
-    width: 100%;
+    position: absolute; // ✅ перекрытие
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black; // фон поиска
+    z-index: 1000; // выше navbar-content
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +74,11 @@
 
   .ThemeToggle {
     margin-left: 30px;
+  }
+  .buttons{
+    margin-left: 250px;
+    margin-top: -45px;
+    align-items: center;
   }
 }
 

@@ -90,13 +90,14 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
  
   .language-switcher {
     .language-selector {
       position: absolute;
-      margin-top: -20px;
-      margin-left: 15px;
+      margin-top: -26px;
+      margin-left: 0px;
+      padding: 8px 14px;
     }
   }
 

@@ -8,7 +8,6 @@
       display: none;
     }
   }
-
   .logo {
     max-height: 50px;
   }
@@ -76,9 +75,11 @@
     margin-left: 30px;
   }
   .buttons{
-    margin-left: 250px;
+    display: flex;
+    // margin-left: 250px;
     margin-top: -45px;
     align-items: center;
+    padding: 0; 
   }
 }
 

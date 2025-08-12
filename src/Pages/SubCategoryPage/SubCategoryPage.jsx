@@ -8,7 +8,7 @@ import { useGetSubCategoriesQuery } from "../../services/api/subcategoriesApi";
 import { useGetCategoryDetailsQuery } from "../../services/api/categoriesApi";
 import { useTranslation } from "react-i18next";
 
-const BASE_URL = "https://ronixtools.duckdns.org";
+const BASE_URL = "https://api.ronix.uz";
 
 export default function SubCategoryPage({ categories }) {
   const { slug } = useParams();

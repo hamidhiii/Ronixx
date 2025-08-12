@@ -35,7 +35,7 @@ export const ProductDataCard = ({ product }) => {
         onClick={() => handleClick(name)}
       >
         <img
-          src={`https://ronixtools.duckdns.org${product.image}`}
+          src={`https://api.ronix.uz${product.image}`}
           alt={name}
           className="product-image"
         />

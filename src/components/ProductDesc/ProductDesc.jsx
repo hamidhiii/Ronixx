@@ -16,7 +16,7 @@ export default function ProductDesc({ product }) {
   const mainImagePath =
     product.details?.[0]?.main_image || product.image;
 
-  const productImg = [`https://ronixtools.duckdns.org${mainImagePath}`];
+  const productImg = [`https://api.ronix.uz${mainImagePath}`];
 
   // Переводимые данные
   const productDesc = product.details?.map((detail, index) => {

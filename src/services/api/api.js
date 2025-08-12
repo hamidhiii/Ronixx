@@ -1,12 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
+import { BASE_URL } from "../../Constants/constants";
 
 const api = axios.create({
-  baseURL: 'https://ronixtools.duckdns.org',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: BASE_URL,
 });
-
-export const getCategories = () => api.get('/categories');
 
 export default api;

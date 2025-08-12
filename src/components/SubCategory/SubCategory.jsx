@@ -39,7 +39,7 @@ export default function SubCategory({ data }) {
               className="cards"
             >
              <img
-  src={image?.startsWith("http") ? image : `https://ronixtools.duckdns.org${image}`}
+  src={image?.startsWith("http") ? image : `https://api.ronix.uz${image}`}
   alt={getTranslatedName(translation, name)}
 />
 

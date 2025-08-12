@@ -34,7 +34,7 @@ export default function Navbar({ onSearch }) {
       <Container>
         {isMobile ? (
           !isSearchOpen ? (
-            <Row className="align-items-center navbar-content">
+            <Row className="align-items-center navbar-content ">
               <Col className="d-flex align-items-center">
                 <Link to="/">
                   <img src={logo} alt="Logo" className="logo" />
@@ -42,7 +42,7 @@ export default function Navbar({ onSearch }) {
                 <Menu />
               </Col>
 
-              <div className="d-flex buttons" >
+              <div className="buttons" >
                 {/* Search is completely removed in mobile */}
                 <ThemeToggle />
                 <LanguageSwitcher />
@@ -58,7 +58,7 @@ export default function Navbar({ onSearch }) {
           )
         ) : (
           <Row className="align-items-center">
-            <Col className="logotip" md={1}>
+            <Col className="logotip"  md={1}>
               <Link to="/">
                 <img src={logo} alt="Logo" className="logo" />
               </Link>

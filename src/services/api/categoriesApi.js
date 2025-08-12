@@ -1,19 +1,25 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BASE_URL } from "../../Constants/constants";
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://ronixtools.duckdns.org',
-  }),
+  reducerPath: "categoriesApi",
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getCategories: builder.query({
-      query: () => '/categories/',
+      query: () => "/categories",
+    }),
+    getCategoryBySlug: builder.query({
+      query: (slug) => `/categories/${slug}/`,
     }),
     getCategoryDetails: builder.query({
-      query: (slug) => `/categories/${encodeURIComponent(slug)}/`,
+      query: (name) => `/categories/${name}/`,
     }),
   }),
 });
 
-export const { useGetCategoriesQuery, useGetCategoryDetailsQuery } = categoriesApi;
+export const {
+  useGetCategoriesQuery,
+  useGetCategoryBySlugQuery,
+  useGetCategoryDetailsQuery
+} = categoriesApi;

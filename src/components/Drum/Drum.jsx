@@ -8,7 +8,7 @@ import axios from "axios";
 import "./Drum.scss";
 import { useGetCategoriesQuery } from "../../services/api/categoriesApi";
 
-const BASE_URL = "https://ronixtools.duckdns.org";
+const BASE_URL = "https://api.ronix.uz";
 
 const Drum = () => {
   const { i18n } = useTranslation();
@@ -65,17 +65,12 @@ const Drum = () => {
   const handleDown = () => setActiveIndex(prev => mod(prev + 1, total));
 
   const getTranslatedName = (categoryName) => {
-
     const translations = categoryTranslations?.[categoryName];
     const lang = i18n.language;
-  
+
     if (!translations) return "";
-  
-    const translatedName = translations[lang]?.name || translations["ru"]?.name;
-    return translatedName || "";
+    return translations[lang]?.name || translations["ru"]?.name || "";
   };
-  
-  
 
   if (isError) return <div>Ошибка загрузки: {error?.data?.message || "Неизвестная ошибка"}</div>;
   if (total === 0) return <div>Категории не найдены</div>;
@@ -91,7 +86,10 @@ const Drum = () => {
                   <Skeleton height={150} width={"90%"} />
                 ) : (
                   <Link to={category.path}>
-                    <img src={`${BASE_URL}${category.image}`} alt={getTranslatedName(category.name)} />
+                    <img
+                      src={`${BASE_URL}${category.main_image || category.image || ""}`}
+                      alt={getTranslatedName(category.name)}
+                    />
                   </Link>
                 )}
               </div>
@@ -137,7 +135,10 @@ const Drum = () => {
                     zIndex: total - Math.abs(index - activeIndex),
                   }}
                 >
-                  <img src={`${BASE_URL}${category.image}`} alt={getTranslatedName(category.name)} />
+                  <img
+                    src={`${BASE_URL}${category.main_image || category.image || ""}`}
+                    alt={getTranslatedName(category.name)}
+                  />
                 </Link>
               );
             })}

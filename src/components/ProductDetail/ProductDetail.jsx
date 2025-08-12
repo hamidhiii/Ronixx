@@ -37,7 +37,7 @@ export default function ProductDetail() {
   
   if (isError || !product) return <div>Ошибка загрузки продукта</div>;
 
-  const productImages = [`https://ronixtools.duckdns.org${product.image}`];
+  const productImages = [`https://api.ronix.uz${product.image}`];
 
   return (
     <Container>

@@ -8,7 +8,7 @@ import axios from "axios";
 import { useGetCategoriesQuery } from "../../services/api/categoriesApi";
 import "./DrumMobile.scss";
 
-const BASE_URL = "https://ronixtools.duckdns.org";
+const BASE_URL = "https://api.ronix.uz";
 
 const DrumMobile = () => {
   const { t, i18n } = useTranslation();

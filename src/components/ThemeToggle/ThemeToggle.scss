@@ -1,0 +1,52 @@
+.theme-toggle {
+    
+    border: 1px solid currentColor;
+    padding: 10px 20px;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: inherit;
+  
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke: currentColor;
+    }
+  
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  
+    // В тёмной теме можно усилить эффект
+    .dark & {
+      border-color: white;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  @media (max-width: 768px){
+    .theme-toggle{
+      margin-left: -5px;
+      padding: 8px 16px;
+      
+    }
+  }
+  @media (max-width: 431px){
+    .theme-toggle{
+      margin-left: 10px;
+      padding: 8px 16px;
+      
+    }
+  }
+  @media (max-width: 576px){
+    .theme-toggle{
+      margin-top: 10px;
+      padding: 5px 10px;
+      
+    }
+  }

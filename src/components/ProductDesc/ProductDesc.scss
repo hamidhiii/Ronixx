@@ -1,0 +1,53 @@
+
+
+  
+  
+    h5 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+  
+    .product-desc-accordion {
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+  
+      .accordion-item {
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        background-color: white;
+  
+        .accordion-header {
+          padding: 0;
+          background-color: white;
+  
+          .accordion-button {
+            padding: 1rem;
+            font-weight: 500;
+            font-size: 1rem;
+            background-color: white;
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+  
+            &::after {
+              display: none;
+            }
+  
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+  
+        .accordion-body {
+          font-size: 0.95rem;
+          padding: 1rem;
+          color: #333;
+        }
+      }
+    }
+ 
+  

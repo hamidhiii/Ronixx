@@ -1,0 +1,46 @@
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    caption-side: bottom;
+    margin-top: 1rem;
+    font-family: sans-serif;
+  
+    caption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  
+    th,
+    td {
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+  
+    .w-100 {
+      width: 100px;
+    }
+  
+    .text-right {
+      text-align: right;
+    }
+  
+    .font-medium {
+      font-weight: 500;
+    }
+  
+    thead {
+      background-color: #f5f5f5;
+    }
+  
+    tfoot {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+  
+    tbody tr:hover {
+      background-color: #fafafa;
+    }
+  }
+  

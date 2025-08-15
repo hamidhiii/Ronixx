@@ -1,0 +1,113 @@
+ul{
+  display: flex;
+ 
+  width: 270px;
+  justify-content: space-between;
+  align-items: center !important;
+  margin-bottom: 0;
+  padding-left: 50px;
+li{
+     a{
+      font-weight: 700;
+      padding-top: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      color: white;
+      font-family: "Inter", serif;
+      text-decoration: none;
+  
+     }
+}
+}
+@media (max-width: 991px){
+  ul{
+    
+    padding: 5px 10px;
+    
+    li{
+      a{
+        font-weight: 700;
+        padding-top: 12px;
+        cursor: pointer;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        color: white;
+        font-family: "Inter", serif;
+        text-decoration: none;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+ ul{
+  margin-left: 10px;
+  li{
+    a{
+     font-weight: 700;
+    //  padding-top: 12px;
+     cursor: pointer;
+     font-size: 13px !important;
+     line-height: 15px !important;
+     color: white;
+     font-family: "Inter", serif;
+     text-decoration: none;
+ 
+    }
+}
+ }
+}
+@media (max-width: 576px) {
+  ul{
+   margin-left: 30px;
+   li{
+     a{
+      font-weight: 700;
+     //  padding-top: 12px;
+      cursor: pointer;
+      font-size: 11px !important;
+      line-height: 12px !important;
+      color: white;
+      font-family: "Inter", serif;
+      text-decoration: none;
+  
+     }
+ }
+  }
+ }
+ @media (max-width: 431px) {
+  ul{
+   margin-left: 10px;
+   li{
+     a{
+      font-weight: 700;
+     //  padding-top: 12px;
+      cursor: pointer;
+      font-size: 11px !important;
+      line-height: 12px !important;
+      color: white;
+      font-family: "Inter", serif;
+      text-decoration: none;
+  
+     }
+ }
+  }
+ }
+ @media (max-width: 391px) {
+  ul{
+   margin-left: 5px;
+   li{
+     a{
+      font-weight: 700;
+     //  padding-top: 12px;
+      cursor: pointer;
+      font-size: 11px !important;
+      line-height: 12px !important;
+      color: white;
+      font-family: "Inter", serif;
+      text-decoration: none;
+  
+     }
+ }
+  }
+ }

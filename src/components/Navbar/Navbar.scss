@@ -1,0 +1,145 @@
+.navbar {
+  padding: 20px 0;
+  background-color: black;
+  z-index: 999999999999;
+  position: relative; 
+  &.search-open {
+    .navbar-content {
+      display: none;
+    }
+  }
+  .logo {
+    max-height: 50px;
+  }
+
+  .menulist {
+    margin-left: 20px;
+    color: white;
+
+    ul {
+      color: white;
+
+      .Menu {
+        color: white;
+      }
+    }
+  }
+  .search {
+    flex: 1;
+    margin-left: 50px;
+  }
+
+  .profile-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    margin-left: 15px;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  svg {
+    color: black;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  .search-toggle-icon {
+    font-size: 24px;
+    color: white;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+
+  .search-fullscreen {
+    position: absolute; // ✅ перекрытие
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black; // фон поиска
+    z-index: 1000; // выше navbar-content
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ThemeToggle {
+    margin-left: 30px;
+  }
+  .buttons{
+    display: flex;
+    // margin-left: 250px;
+    margin-top: -45px;
+    align-items: center;
+    padding: 0; 
+  }
+}
+
+@media (max-width: 991px){
+  .navbar {
+    align-items: center;
+        .logotip{
+          margin-right: 30px;
+          .logo {
+            max-height: 40px !important;
+            max-width: 100px;
+            padding: 0;
+          }
+        }
+      }
+}
+ 
+
+
+@media (max-width: 576px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 40px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+    }
+  }
+}
+@media (max-width: 431px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 30px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+    }
+  }
+}
+@media (max-width: 391px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 20px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  }
+}
+
+
+
+// 1199px  ----- 992px
+// 991px   ----- 768px
+// 767px   ----- 576px
+// 575px   ----- 320px

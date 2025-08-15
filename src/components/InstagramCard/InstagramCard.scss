@@ -1,0 +1,149 @@
+.contact {
+  display: flex;
+  gap: 100px;
+  background-color: #fff;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid rgb(115, 111, 111);
+  
+  margin-top: 50px;
+  padding: 50px;
+
+     html.dark & {
+      background-color: #404040;
+    }
+.insta-card {
+ margin-top: 50px;
+  width: 100%;
+  height: 200px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+
+   
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #262626;
+   
+  }
+
+  &__btn {
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #1a1a1a;
+    }
+  }
+}
+
+.formcontac {
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+ 
+ 
+
+  h3 {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    
+  }
+
+  a {
+   
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+   
+    text-decoration: none;
+   
+   
+
+    button {
+      background-color: red;
+      width: 100px;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      margin-left: 20px;
+    }
+  }
+}
+h1{
+  color: red;
+  font-size: 40px;
+  font-weight: 700;
+ text-align: center;
+}
+}
+
+@media (max-width: 768px) {
+  .contact {
+   display: block;
+    align-items: center;
+  
+    width: 100%;
+    padding: 20px;
+  }
+
+  .insta-card {
+    width: 100%; 
+    margin: auto;
+
+  }
+
+  
+
+  .formcontac {
+  
+    margin: auto;
+    a{
+     
+      display: flex;
+   
+    }
+    
+ h1{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10px;
+  color: red;
+ }
+   
+  }
+
+}

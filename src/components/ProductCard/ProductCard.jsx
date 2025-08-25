@@ -6,19 +6,23 @@ import { addToCart } from "../../redux/cartSlice";
 import ProductAccardion from "../ProductAccardion/ProductAccardion";
 import { useTranslation } from "react-i18next";
 
+
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
 
+  // Данные из верхнего уровня (детали)
+  const { specification, product: nestedProduct } = product || {};
+
+  // Данные из вложенного product
   const {
     model,
     barcode_color,
     barcode_carton,
     translations,
     price,
-    specifications
-  } = product;
+  } = nestedProduct || {};
 
   const [activeAccordion, setActiveAccordion] = useState("0");
 
@@ -26,14 +30,16 @@ export default function ProductCard({ product }) {
     setActiveAccordion(activeAccordion === key ? null : key);
   };
 
+  // Текущие переводы
   const translation =
     translations?.[currentLang] || translations?.ru || translations?.en;
 
   const specs =
-    specifications?.translations?.[currentLang] ||
-    specifications?.translations?.ru ||
-    specifications?.translations?.en;
+    specification?.translations?.[currentLang] ||
+    specification?.translations?.ru ||
+    specification?.translations?.en;
 
+  // Переводы
   const name = translation?.name || "Нет названия";
   const madeIn = translation?.made_in || "Не указано";
   const featureText = translation?.features || "Нет описания";
@@ -58,10 +64,11 @@ export default function ProductCard({ product }) {
           <p>Штрихкод (цвет): {barcode_color}</p>
           <p>Штрихкод (коробка): {barcode_carton}</p>
         </div>
+
         <ProductAccardion
           features={featureText}
           description={descriptionText}
-          specification={specifications}
+          specification={specification}
           activeAccordion={activeAccordion}
           toggleAccordion={toggleAccordion}
         />

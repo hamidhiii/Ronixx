@@ -4,7 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 export default function ProductDesc({ product }) {
-  const [activeAccordion, setActiveAccordion] = useState(null);
+  const [activeAccordion, setActiveAccordion] = useState("1");
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
 
@@ -12,53 +12,64 @@ export default function ProductDesc({ product }) {
     setActiveAccordion((prev) => (prev === id ? null : id));
   };
 
-  // Выбираем главное изображение: сначала из main_image, потом из image
+  // Берём только main_image; если его нет — fallback на product.image
   const mainImagePath =
-    product.details?.[0]?.main_image || product.image;
+    product?.main_image || product?.product?.image || product?.image || null;
 
-  const productImg = [`https://api.ronix.uz${mainImagePath}`];
+  const mainImageUrl = mainImagePath
+    ? (mainImagePath.startsWith("http")
+        ? mainImagePath
+        : `https://api.ronix.uz${mainImagePath}`)
+    : null;
 
-  // Переводимые данные
-  const productDesc = product.details?.map((detail, index) => {
-    const translations = detail.translations || {};
-    const data = translations[currentLang] || translations["ru"] || {};
-    return {
-      id: index + 1,
-      title: data.title || `Раздел ${index + 1}`,
-      content: data.description || "Нет описания"
-    };
-  }) || [];
+  // Текст берём из верхнеуровневых translations
+  const tdata =
+    product?.translations?.[currentLang] ||
+    product?.translations?.ru ||
+    product?.translations?.en ||
+    {};
+
+  const productDesc = [
+    {
+      id: "1",
+      title: tdata.title || "Описание",
+      content: tdata.description || "Нет описания",
+    },
+  ];
 
   return (
     <section>
       <Container>
         <Row>
-          {productImg.map((img, index) => (
-            <Col key={index} lg={12} md={12} className="d-flex justify-content-center">
+          {mainImageUrl && (
+            <Col lg={12} md={12} className="d-flex justify-content-center">
               <div className="image-wrapper">
                 <img
-                  src={img}
-                  alt={`Product Image ${index + 1}`}
+                  src={mainImageUrl}
+                  alt={tdata.title || "Главное изображение"}
                   className="product-main-image"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    display: 'block'
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                    display: "block",
                   }}
                 />
               </div>
             </Col>
-          ))}
+          )}
 
           <Col md={12}>
-            <Accordion activeKey={activeAccordion} className="product-desc-accordion">
+            <Accordion
+              activeKey={activeAccordion}
+              className="product-desc-accordion"
+            >
               {productDesc.map(({ title, content, id }) => (
-                <Accordion.Item eventKey={id.toString()} key={id}>
-                  <Accordion.Header onClick={() => toggleAccordion(id.toString())}>
+                <Accordion.Item eventKey={id} key={id}>
+                  <Accordion.Header onClick={() => toggleAccordion(id)}>
                     {title}
                     <span style={{ marginLeft: "8px" }}>
-                      {activeAccordion === id.toString() ? <FaMinus /> : <FaPlus />}
+                      {activeAccordion === id ? <FaMinus /> : <FaPlus />}
                     </span>
                   </Accordion.Header>
                   <Accordion.Body>{content}</Accordion.Body>

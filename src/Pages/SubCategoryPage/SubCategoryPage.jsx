@@ -2,22 +2,20 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import DrilsHeader from "../../components/DrilsHeader/DrilsHeader";
 import SubCategory from "../../components/SubCategory/SubCategory";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useGetSubCategoriesQuery } from "../../services/api/subcategoriesApi";
 import { useGetCategoryDetailsQuery } from "../../services/api/categoriesApi";
 import { useTranslation } from "react-i18next";
-
-const BASE_URL = "https://api.ronix.uz";
 
 export default function SubCategoryPage({ categories }) {
   const { slug } = useParams();
   const { i18n } = useTranslation();
 
-  // Находим текущую категорию по slug
+  // Находим категорию по slug (path)
   const category = categories.find(cat => cat.path === `/${slug}`);
 
-  // Запрос: детали категории (переводы, картинки и т.п.)
+  // Загружаем данные категории по её name (для перевода, описания и т.п.)
   const {
     data: categoryData,
     isLoading: categoryLoading,
@@ -26,15 +24,17 @@ export default function SubCategoryPage({ categories }) {
     skip: !category?.name
   });
 
-  // Запрос: все подкатегории
+  // Загружаем все подкатегории
   const {
     data: subcategories = [],
     isLoading: subCategoriesLoading,
     isError: subCategoriesError,
   } = useGetSubCategoriesQuery();
 
+  // Если категория не найдена
   if (!category) return <div>Категория не найдена</div>;
 
+  // Скелетон загрузки
   if (categoryLoading || !categoryData) {
     return (
       <div>
@@ -45,21 +45,24 @@ export default function SubCategoryPage({ categories }) {
     );
   }
 
+  // Ошибка при загрузке категории
   if (categoryError) return <div>Ошибка загрузки категории</div>;
 
-  // Фильтрация подкатегорий по ID категории
+  // Фильтруем подкатегории по ID текущей категории
   const filteredSubCategories = subcategories.filter(
     sub => sub.category === categoryData.id
   );
 
-  // Подготовка данных для заголовка
-  const headerData = [{
-    id: categoryData.id,
-    title: categoryData.name,
-    desc: categoryData.description,
-    mainImage: category.main_image,
-    translations: categoryData.translations,
-  }];
+  // Формируем данные для DrilsHeader
+  const headerData = [
+    {
+      id: categoryData.id,
+      title: categoryData.name,
+      desc: categoryData.description,
+      mainImage: categoryData.main_image, // Берём из categories
+      translations: categoryData.translations, // Из API
+    }
+  ];
 
   return (
     <div>

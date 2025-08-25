@@ -5,16 +5,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import CarouselProduct from "../CaruselProduct/CaruselProduct";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductDesc from "../ProductDesc/ProductDesc";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function ProductDetail() {
-  
   const { productName } = useParams();
-  
-  
-  const { data: product, isLoading, isError } = useGetProductByIdQuery(productName);
+  const { data: products, isLoading, isError } = useGetProductByIdQuery(productName);
 
   if (isLoading) {
     return (
@@ -24,7 +20,7 @@ export default function ProductDetail() {
             <Skeleton height={400} />
           </Col>
           <Col lg={6}>
-            <Skeleton height={30} width={300} style={{ marginBottom: '10px' }} />
+            <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
             <Skeleton count={5} />
           </Col>
           <Col lg={12}>
@@ -34,10 +30,20 @@ export default function ProductDetail() {
       </Container>
     );
   }
-  
-  if (isError || !product) return <div>Ошибка загрузки продукта</div>;
 
-  const productImages = [`https://api.ronix.uz${product.image}`];
+  if (isError || !products) return <div>Ошибка загрузки продукта</div>;
+
+  // Логируем чтобы убедиться
+  console.log("Products data:", products);
+
+  const productImages =
+  products.product_images?.map((img) =>
+    img.startsWith("http") ? img : `https://api.ronix.uz${img}`
+  ) || [];
+
+
+
+  console.log("Prepared productImages:", productImages);
 
   return (
     <Container>
@@ -46,10 +52,10 @@ export default function ProductDetail() {
           <CarouselProduct images={productImages} />
         </Col>
         <Col lg={6} md={12} xs={12} className="product-details">
-          <ProductCard product={product} />
+          <ProductCard product={products} />
         </Col>
         <Col lg={12}>
-          <ProductDesc product={product} />
+          <ProductDesc product={products} />
         </Col>
       </Row>
     </Container>

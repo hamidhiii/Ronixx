@@ -4,16 +4,17 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
-const BASE_URL = "https://ronixtools.duckdns.org";
+const BASE_URL = "https://api.ronix.uz";
 
 export default function SubCategory({ data }) {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
 
   // Функция перехода при клике
-  const handleClick = (subcategoryPath) => {
-    navigate(`/product${subcategoryPath}`);
+  const handleClick = (path) => {
+    navigate(`/product/${path}/`);
   };
+  
 
   // Получение перевода или запасного названия
   const getTranslatedName = (translation, fallback) => {

@@ -31,7 +31,7 @@ export default function Navbar({ onSearch }) {
     <nav className={`navbar ${isSearchOpen ? "search-open" : ""}`}>
       <Container >
         {windowWidth <= 767 ? (
-          !isSearchOpen ? (
+          // !isSearchOpen ? (
             <Row className="align-items-center navbar-content">
               <Col className="d-flex align-items-center">
                 <Link to="/">
@@ -52,13 +52,13 @@ export default function Navbar({ onSearch }) {
                 {/* <FaUser className="profile-icon" onClick={() => navigate("/profile")} /> */}
               </Col>
             </Row>
-          ) : (
-            <Row className="search-fullscreen">
-              <Col>
-                <Search setIsSearchOpen={setIsSearchOpen} mobile={true} />
-              </Col>
-            </Row>
-          )
+          // ) : (
+          //   // <Row className="search-fullscreen">
+          //   //   <Col>
+          //   //     <Search setIsSearchOpen={setIsSearchOpen} mobile={true} />
+          //   //   </Col>
+          //   // </Row>
+          // )
         ) : (
           <Row className="align-items-center">
             <Col className="logotip"  md={1} >

@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: | 
           echo "connect server" 
-          cd /home/front/Ronixx/
+          cd /home/frontend/Ronixx/
           git pull
           npm run build
     

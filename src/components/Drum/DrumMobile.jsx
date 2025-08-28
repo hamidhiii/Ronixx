@@ -11,7 +11,7 @@ import "./DrumMobile.scss";
 const BASE_URL = "https://api.ronix.uz";
 
 const DrumMobile = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { data: categories = [], isLoading, isError, error } = useGetCategoriesQuery();
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -51,7 +51,7 @@ const DrumMobile = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
+    const interval = setInterval(nextSlide, 7000);
     return () => clearInterval(interval);
   }, [items.length]);
 
@@ -99,9 +99,9 @@ const DrumMobile = () => {
             }}
           >
             {/* Клон последнего элемента (в начало) */}
-            {!isLoading && (
+            {!isLoading && items.length > 0 && (
               <div className="carousel-slide" key="last-clone">
-                <Link to={items[items.length - 1].path}>
+                <Link to={`/categories${items[items.length - 1].path}`}>
                   <img
                     className="drum"
                     src={`${BASE_URL}${items[items.length - 1].image}`}
@@ -111,12 +111,13 @@ const DrumMobile = () => {
               </div>
             )}
 
+            {/* Основные элементы */}
             {items.map((item, index) => (
               <div className="carousel-slide" key={item?.id || index}>
                 {isLoading ? (
                   <Skeleton width={250} height={150} />
                 ) : (
-                  <Link to={item.path}>
+                  <Link to={`/categories${item.path}`}>
                     <img
                       className="drum"
                       src={`${BASE_URL}${item.image}`}
@@ -128,9 +129,9 @@ const DrumMobile = () => {
             ))}
 
             {/* Клон первого элемента (в конец) */}
-            {!isLoading && (
+            {!isLoading && items.length > 0 && (
               <div className="carousel-slide" key="first-clone">
-                <Link to={items[0].path}>
+                <Link to={`/categories${items[0].path}`}>
                   <img
                     className="drum"
                     src={`${BASE_URL}${items[0].image}`}

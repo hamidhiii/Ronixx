@@ -48,31 +48,10 @@
     }
   }
 
-  .search-toggle-icon {
-    font-size: 24px;
-    color: white;
-
-    &:hover {
-      color: red;
-    }
-  }
-
-
-  .search-fullscreen {
-    position: absolute; // ✅ перекрытие
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black; // фон поиска
-    z-index: 1000; // выше navbar-content
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
 
   .ThemeToggle {
-    margin-left: 30px;
+    margin-left: 50px;
   }
   .buttons{
     display: flex;
@@ -97,7 +76,23 @@
       }
 }
  
-
+@media (max-width: 769px) {
+  .navbar {
+    padding: 10px 0;
+    align-items: center;
+    .logo {
+      max-height: 40px;
+    }
+    .search-toggle-icon{
+      margin-top: 10px;
+    }
+    .buttons{
+      width: 200px;
+      align-items: center !important;
+      margin-top: 5px;
+    }
+  }
+}
 
 @media (max-width: 576px) {
   .navbar {
@@ -109,12 +104,19 @@
     .search-toggle-icon{
       margin-top: 10px;
     }
+    .buttons{
+      width: 100px;
+      margin-top: 5px;
+    }
   }
 }
 @media (max-width: 431px) {
   .navbar {
     padding: 10px 0;
     align-items: center;
+    ul{
+      width: 150px;
+    }
     .logo {
       max-height: 30px;
     }

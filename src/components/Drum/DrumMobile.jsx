@@ -143,6 +143,7 @@ const DrumMobile = () => {
           </div>
         </div>
 
+        
         <button className="nav-btn right" onClick={nextSlide}>›</button>
       </div>
 
